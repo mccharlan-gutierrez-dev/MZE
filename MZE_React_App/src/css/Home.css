@@ -1,15 +1,536 @@
-
-
-h1 {
-    font-size: 40px;
-    font-weight: bold;
-    color: hwb(242 2% 10%);
-    text-align: center;
+/* BUTTONS */
+/* HERO BUTTONS */
+.hero-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 12px;
+  width: 100%;
 }
 
-p{
-    font-size: 20px;
-    font-weight: bold;
-    color: black;
-    text-align: center;
+.hero-buttons a {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 24px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: #7030A0;
+  color: #f3cc09;
+}
+
+.btn-secondary {
+  color: #5723b5;
+  border: 1px solid #bda8ed;
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.arrow {
+  margin-left: 10px;
+  font-size: 17px;
+}
+
+/* SECONDARY BUTTON */
+
+.btn-secondary {
+  color: #5723b5;
+
+  border: 1px solid #bda8ed;
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.btn-secondary:hover {
+  background: #7030A0;
+  color: #f3cc09;
+  border-color: #7030A0;
+}
+
+
+
+/* =====================================
+   WHAT WE PAWN & SELL SECTION
+===================================== */
+.why-choose{
+   width: 100%;
+  padding: 45px 5%;
+  background: #ffffff;
+  font-family: Arial, sans-serif;
+
+}
+/* Main container */
+.why-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  
+}
+
+/* Left content section */
+.why-content {
+  max-width: 550px;
+}
+
+/* WHY CHOOSE MZE? label */
+.why-label {
+  color: #140e01;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* Heading */
+.why-content h2 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #222;
+  margin: 15px 0;
+}
+
+/* Paragraph */
+.why-content p {
+  font-size: 13px;
+  
+  color: #222;
+  
+
+}
+
+/* Learn More button */
+.why-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 25px;
+  background-color: #7030A0;
+  color: #f3cc09;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+/* Button hover */
+.why-button:hover {
+  background-color: #7030A0;
+}
+.why-features{
+  color: #140e01;
+}
+.why-card{
+  color: #140e01;
+}
+.why-icon{
+  color: #140e01;
+}
+.why-card h3{
+  color: #140e01;
+}
+.why-card p{
+  color: #140e01;
+}
+/* next div the product */
+.services-section {
+  width: 100%;
+  padding: 45px 5%;
+  background: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+/* SECTION HEADER */
+
+.services-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.services-heading {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-label {
+   color: #140e01;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+.section-header span{
+  color: #140e01;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.services-header h2 {
+  font-size: 42px;
+  font-weight: 700;
+  color: #222;
+  margin: 15px 0;
+}
+
+.services-header p {
+  font-size: 13px;
+  
+  color: #222;
+}
+
+/* VIEW ALL PRODUCTS */
+
+.view-all {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #302078;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.view-all span {
+  font-size: 17px;
+}
+
+.view-all:hover {
+  color: #7653c5;
+  transform: translateX(3px);
+}
+
+
+/* =====================================
+   SERVICES GRID
+===================================== */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+
+/* =====================================
+   SERVICE CARD
+===================================== */
+
+.service-card {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px;
+  position: relative;
+
+  background: #fafaff;
+  border: 1px solid #e5e5ee;
+  border-radius: 12px;
+
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  border-color: #302078;
+  box-shadow: 0 5px 15px rgba(48, 32, 120, 0.10);
+}
+
+
+/* =====================================
+   CARD IMAGE / ICON
+===================================== */
+
+.service-image {
+  width: 65px;
+  min-width: 65px;
+  height: 65px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-image span {
+  font-size: 40px;
+}
+
+
+/* =====================================
+   CARD INFORMATION
+===================================== */
+
+.service-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.service-info h3 {
+  font-size: 11px;
+  font-weight: 700;
+  color: #202039;
+  margin: 0 0 7px;
+}
+
+.service-info p {
+  font-size: 9px;
+  color: #777777;
+  line-height: 1.4;
+  margin: 0;
+}
+
+
+/* =====================================
+   CARD ARROW
+===================================== */
+
+.card-arrow {
+  position: absolute;
+  right: 9px;
+  bottom: 9px;
+
+  width: 18px;
+  height: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #39228a;
+  color: #ffffff;
+
+  border-radius: 50%;
+  font-size: 11px;
+  text-decoration: none;
+
+  transition: 0.3s;
+}
+
+.card-arrow:hover {
+  background: #7653c5;
+  transform: scale(1.1);
+}
+
+/* =====================================
+   TABLET RESPONSIVE
+===================================== */
+
+@media (max-width: 1024px) {
+
+  .why-container {
+    gap: 25px;
+  }
+
+  .why-content {
+    max-width: 400px;
+  }
+
+  .why-content h2 {
+    font-size: 32px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+/* =====================================
+   MOBILE RESPONSIVE
+===================================== */
+
+@media (max-width: 768px) {
+
+  /* HERO SECTION */
+
+  .hero {
+    height: auto;
+    min-height: 445px;
+    padding: 50px 20px;
+    background-size: cover !important;
+    background-position: center !important;
+  }
+
+  .hero-content {
+    width: 100%;
+    padding: 0;
+  }
+
+  .hero-content .max-w-md {
+    max-width: 100%;
+  }
+
+  .hero-content h1 {
+    font-size: 32px;
+    line-height: 1.2;
+    margin-bottom: 18px;
+  }
+
+  .hero-content p {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  /* KEEP TWO BUTTONS INLINE */
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hero-buttons a {
+    padding: 12px 14px;
+    font-size: 11px;
+    flex: 0 1 auto;
+  }
+
+  .arrow {
+    margin-left: 6px;
+  }
+
+
+  /* WHY CHOOSE MZE */
+
+  .why-choose {
+    padding: 40px 6%;
+  }
+
+  .why-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  .why-content {
+    max-width: 100%;
+  }
+
+  .why-content h2 {
+    font-size: 30px;
+  }
+
+  .why-content p {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .why-features {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+    width: 100%;
+  }
+
+  .why-card {
+    padding: 15px;
+  }
+
+  .why-card h3 {
+    font-size: 14px;
+  }
+
+  .why-card p {
+    font-size: 12px;
+  }
+
+
+  /* SERVICES SECTION */
+
+  .services-section {
+    padding: 40px 6%;
+  }
+
+  .services-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .services-heading h2 {
+    font-size: 30px;
+  }
+
+  .services-heading p {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+}
+
+
+/* =====================================
+   SMALL MOBILE PHONES
+===================================== */
+
+@media (max-width: 480px) {
+
+  .hero {
+    min-height: 400px;
+    padding: 40px 12px;
+  }
+
+  .hero-content h1 {
+    font-size: 26px;
+  }
+
+  .hero-content p {
+    font-size: 11px;
+  }
+
+  /* BUTTONS REMAIN INLINE */
+
+  .hero-buttons {
+    gap: 6px;
+  }
+
+  .hero-buttons a {
+    padding: 11px 10px;
+    font-size: 10px;
+  }
+
+  .arrow {
+    font-size: 13px;
+    margin-left: 4px;
+  }
+
+  .why-content h2 {
+    font-size: 26px;
+  }
+
+  .why-features {
+    grid-template-columns: 1fr;
+  }
+
+  .services-heading h2 {
+    font-size: 26px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    min-height: 90px;
+  }
+
 }

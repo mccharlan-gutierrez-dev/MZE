@@ -1,35 +1,63 @@
-import { Link } from 'react-router'
+
+import { useState } from 'react';
+import { Link } from 'react-router';
+import logo from '../assets/mze_nav_logo.jpg';
+import '../css/Navbar.css';
 
 const Navbar = () => {
-  return (
-    <div className="navbar bg-base-100 shadow-md px-6">
+  const [menuOpen, setMenuOpen] = useState(false);
 
-      {/* Logo */}
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
+  return (
+    <nav className="custom-navbar">
+
+      {/* LOGO */}
       <div className="navbar-start">
-        <Link to="/" className="text-xl font-bold text-primary">
-          MZE App
+        <Link to="/" onClick={closeMenu}>
+          <img src={logo} alt="MZE" className="navbar-logo" />
         </Link>
       </div>
 
-      {/* Navigation Links */}
-      <div className="navbar-end gap-2">
+      {/* HAMBURGER BUTTON */}
+      <button
+        className="menu-toggle"
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Toggle navigation menu"
+        aria-expanded={menuOpen}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-        <Link to="/" className="btn btn-ghost">
+      {/* NAVIGATION LINKS */}
+      <div className={`navbar-end navbar-links ${menuOpen ? 'active' : ''}`}>
+
+        <Link to="/" className="nav-link" onClick={closeMenu}>
           Home
         </Link>
 
-        <Link to="/about" className="btn btn-ghost">
+        <Link to="/about" className="nav-link" onClick={closeMenu}>
           About
         </Link>
 
-        <Link to="/contact" className="btn btn-ghost">
+        <Link to="/contact" className="nav-link" onClick={closeMenu}>
           Contact
         </Link>
 
+        <input
+          type="text"
+          placeholder="Search"
+          className="input"
+        />
+
       </div>
 
-    </div>
-  )
-}
+    </nav>
+  );
+};
 
-export default Navbar
+export default Navbar;
