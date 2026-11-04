@@ -1,6 +1,7 @@
 
 import React from "react";
 import "../css/Home.css";
+import { useState } from 'react';
 
 // ==============================
 // IMAGE IMPORTS
@@ -239,6 +240,7 @@ const WhyChoose = () => {
 // ==============================
 
 const PawnServices = () => {
+  const [showAll, setShowAll] = useState(false);
   return (
     <section className="services-section" id="products">
 
@@ -265,81 +267,138 @@ const PawnServices = () => {
 
         </div>
 
-        <a href="/products" className="view-all">
-          View All Products →
-        </a>
+      
 
       </div>
 
 
       {/* SERVICES GRID */}
 
-      <div className="services-grid">
+    <div className="services-grid">
 
   {/* PHONES */}
   <div className="card bg-base-100 shadow-sm service-product-card">
     <figure>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtzFGodVeMLBw5ebB8Cnb94LvoGlQ3v_Jp8TNvDGDU0g&s=10" alt="Phones" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3e-0IiIy_UxqbVaqXTL3jhA2ZuRJ-FIFTa0HBCIRKLQ&s=10" alt="Phones" />
     </figure>
     <div className="card-body">
       <h2 className="card-title">Phones</h2>
       <p>Various brands, models, and affordable choices.</p>
+      {/* 5 STAR RATING */}
+      <div className="product-rating">
+        <span>★★★★★</span>
+        <small>5.0</small>
+      </div>
     </div>
   </div>
 
   {/* LAPTOPS */}
   <div className="card bg-base-100 shadow-sm service-product-card">
     <figure>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR93OXnJsKlOeLRd43uvs6T1yhA5NfyUQ5lBGZS5ps5tA&s=10" alt="Laptops" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2QgzOcNrJS09f_xO1b5wEc94uC4jFXSUi9NwF3mGGWg&s=10" alt="Laptops" />
     </figure>
     <div className="card-body">
       <h2 className="card-title">Laptops</h2>
       <p>Different brands and models for work, school, and everyday use.</p>
+      {/* 5 STAR RATING */}
+      <div className="product-rating">
+        <span>★★★★★</span>
+        <small>5.0</small>
+      </div>
     </div>
   </div>
 
   {/* TABLETS */}
   <div className="card bg-base-100 shadow-sm service-product-card">
     <figure>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQzQdFq_rHYWqEB3RGe6CKjPPdt4x1rGW842Qpguf2yQ&s=10" alt="Tablets" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv1cWaSm_IMUsznXc_ctyNyD3pycDe_rnnRRCSKvW8Rg&s=10" alt="Tablets" />
     </figure>
     <div className="card-body">
       <h2 className="card-title">Tablets</h2>
       <p>Explore various tablets for entertainment and productivity.</p>
+      {/* 5 STAR RATING */}
+      <div className="product-rating">
+        <span>★★★★★</span>
+        <small>5.0</small>
+      </div>
     </div>
   </div>
 
-  {/* GAMING */}
-  <div className="card bg-base-100 shadow-sm service-product-card">
-    <figure>
-      <img src="https://d1rlzxa98cyc61.cloudfront.net/catalog/product/1/9/191553_3.jpg?auto=webp&format=pjpg&width=640" alt="Gaming Consoles" />
-    </figure>
-    <div className="card-body">
-      <h2 className="card-title">Gaming Consoles</h2>
-      <p>Gaming devices and consoles from different generations.</p>
-    </div>
-  </div>
+  {/* OTHER PRODUCTS - SHOW WHEN CLICKED */}
+{showAll && (
+  <>
+    {/* GAMING */}
+    <div className="card bg-base-100 shadow-sm service-product-card">
+      <figure>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnvmE8FiGoT8qXZUzdKPmQ3lxbpTJ8CMaumIV3Ur0SDA&s=10"
+          alt="Gaming Consoles"
+        />
+      </figure>
 
-  <div className="card bg-base-100 shadow-sm service-product-card">
-    <figure>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnFbPq18qYaLkkLyud2ujtQYTw8EZ7QdIZmbnyCVZUsA&s=10" alt="Gaming Consoles" />
-    </figure>
-    <div className="card-body">
-      <h2 className="card-title">Smart TV</h2>
-      <p>Various TV brands, screen sizes, and models for every home.</p>
+      <div className="card-body">
+        <h2 className="card-title">Gaming Consoles</h2>
+        <p>Gaming devices and consoles from different generations.</p>
+        {/* 5 STAR RATING */}
+      <div className="product-rating">
+        <span>★★★★★</span>
+        <small>5.0</small>
+      </div>
+      </div>
     </div>
-  </div>
 
-  <div className="card bg-base-100 shadow-sm service-product-card">
-    <figure>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwrRzY0633h7N8HV2aPlod0BxYOGoe0Gs1wHS9vV4TnA&s=10" alt="Gaming Consoles" />
-    </figure>
-    <div className="card-body">
-      <h2 className="card-title">Action Cam</h2>
-      <p>Capture every adventure with action cameras from various brands.</p>
+    {/* SMART TV */}
+    <div className="card bg-base-100 shadow-sm service-product-card">
+      <figure>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnFbPq18qYaLkkLyud2ujtQYTw8EZ7QdIZmbnyCVZUsA&s=10"
+          alt="Smart TV"
+        />
+      </figure>
+
+      <div className="card-body">
+        <h2 className="card-title">Smart TV</h2>
+        <p>Various TV brands, screen sizes, and models for every home.</p>
+        {/* 5 STAR RATING */}
+      <div className="product-rating">
+        <span>★★★★★</span>
+        <small>5.0</small>
+      </div>
+      </div>
     </div>
-  </div>
 
+    {/* ACTION CAM */}
+    <div className="card bg-base-100 shadow-sm service-product-card">
+      <figure>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToXhJKz34A9i9ra2WUTjzrdPIB-pOf7UO5iGhJatV9MA&s=10"
+          alt="Action Cam"
+        />
+      </figure>
+
+      <div className="card-body">
+        <h2 className="card-title">Action Cam</h2>
+        <p>Capture every adventure with action cameras from various brands.</p>
+        {/* 5 STAR RATING */}
+      <div className="product-rating">
+        <span>★★★★★</span>
+        <small>5.0</small>
+      </div>
+      </div>
+    </div>
+  </>
+)}
+
+ {/* VIEW ALL BUTTON */}
+        <button
+          className="view-all"
+          onClick={() => setShowAll(!showAll)}
+        >
+          {showAll ? 'Show Less ↑' : 'View All Products →'}
+        </button>
+  
+
+ 
 </div>
 
     </section>
