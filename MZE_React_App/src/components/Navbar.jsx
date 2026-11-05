@@ -44,6 +44,10 @@ const Navbar = () => {
           About
         </Link>
 
+        <Link to="/about" className="nav-link" onClick={closeMenu}>
+          Services
+        </Link>
+
         <Link to="/contact" className="nav-link" onClick={closeMenu}>
           Contact
         </Link>
