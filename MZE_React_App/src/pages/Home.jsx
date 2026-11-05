@@ -140,7 +140,7 @@ const Home = () => {
               </a>
 
               <a href="#products" className="btn-secondary">
-                Explore Our Products
+                Our  Products
               </a>
 
             </div>
@@ -287,7 +287,7 @@ const PawnServices = () => {
       {/* 5 STAR RATING */}
       <div className="product-rating">
         <span>★★★★★</span>
-        <small>5.0</small>
+        
       </div>
     </div>
   </div>
@@ -303,7 +303,7 @@ const PawnServices = () => {
       {/* 5 STAR RATING */}
       <div className="product-rating">
         <span>★★★★★</span>
-        <small>5.0</small>
+        
       </div>
     </div>
   </div>
@@ -319,7 +319,7 @@ const PawnServices = () => {
       {/* 5 STAR RATING */}
       <div className="product-rating">
         <span>★★★★★</span>
-        <small>5.0</small>
+        
       </div>
     </div>
   </div>
@@ -342,7 +342,7 @@ const PawnServices = () => {
         {/* 5 STAR RATING */}
       <div className="product-rating">
         <span>★★★★★</span>
-        <small>5.0</small>
+        
       </div>
       </div>
     </div>
@@ -362,7 +362,8 @@ const PawnServices = () => {
         {/* 5 STAR RATING */}
       <div className="product-rating">
         <span>★★★★★</span>
-        <small>5.0</small>
+        
+        
       </div>
       </div>
     </div>
@@ -382,7 +383,7 @@ const PawnServices = () => {
         {/* 5 STAR RATING */}
       <div className="product-rating">
         <span>★★★★★</span>
-        <small>5.0</small>
+        
       </div>
       </div>
     </div>

@@ -54,7 +54,7 @@
 .nav-link {
     font-size: 13px;
     font-weight: 600;
-    color: #333333;
+    color: #000;
     text-decoration: none;
 
     background: transparent;
@@ -154,6 +154,7 @@
     /* MOBILE DROPDOWN MENU */
     .navbar-links {
         display: none;
+        
 
         position: absolute;
         top: 65px;
@@ -164,11 +165,12 @@
 
         box-sizing: border-box;
 
-        background-color: #c5c4d0;
+         /* Background with 85% opacity */
+    background-color: rgba(91, 90, 109, 0.85);
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
 
         flex-direction: column;
-        align-items: stretch;
+        
         gap: 10px;
     }
 
@@ -180,9 +182,10 @@
     .nav-link {
         width: 100%;
         box-sizing: border-box;
-        text-align: center;
+        text-align: start;
         padding: 12px;
         font-size: 14px;
+        color: #c5c4d0;
     }
 
     /* MOBILE SEARCH */

@@ -16,23 +16,25 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 24px;
+  padding: 10px 20px;
   border-radius: 30px;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 500;
   white-space: nowrap;
   transition: all 0.3s ease;
 }
 
 .btn-primary {
-  background: #7030A0;
-  color: #f3cc09;
+  background: #ffffff;
+  color: #0c0b08;
+  border: 1px solid #0c0b08;
   
 }
 
 .btn-primary:hover{
- transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  background: #7030A0;
+  color: #ffffff;
+  border-color: #0c0b08;
 }
 
 .arrow {
@@ -43,16 +45,16 @@
 /* SECONDARY BUTTON */
 
 .btn-secondary {
-  color: #5723b5;
+  color: #0c0b08;
 
-  border: 1px solid #bda8ed;
-  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid #0c0b08;
+  background: #ffffff;
 }
 
 .btn-secondary:hover {
   background: #7030A0;
-  color: #f3cc09;
-  border-color: #7030A0;
+  color: #ffffff;
+  border-color: #0c0b08;
 }
 
 
@@ -111,13 +113,13 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 12px 25px;
+  padding: 8px 25px;
   background-color: #7030A0;
   color: #f3cc09;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 20px;
   font-weight: bold;
-  transition: 0.3s;
+  
 }
 
 /* Button hover */
@@ -193,11 +195,12 @@
   display: flex;
   align-items: center;
   gap: 7px;
-  color: #302078;
+  color: #eeedf4;
   font-size: 13px;
   font-weight: 800;
   text-decoration: none;
   transition: 0.3s;
+  background-color: #7653c5;
   
 }
 
@@ -392,7 +395,7 @@
 
   .hero-buttons {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
@@ -524,7 +527,7 @@
   }
 
   .why-features {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .services-heading h2 {
@@ -543,8 +546,8 @@
 
 /* CARD SIZE */
 .service-product-card {
-  width: 250px;
-  height: 320px;
+  width: 100px;
+  height: 150px;
   overflow: hidden;
   border-radius: 12px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
