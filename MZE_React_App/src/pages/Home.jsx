@@ -1,15 +1,11 @@
-
-import React from "react";
+import { useRef } from "react";
 import "../css/Home.css";
-import { useState } from 'react';
-
-// ==============================
-// IMAGE IMPORTS
-// ==============================
 
 import heroBg from "../assets/Hero section Bg.png";
 
-
+// =====================================
+// WHY CHOOSE MZE FEATURES
+// =====================================
 
 const features = [
   {
@@ -55,322 +51,230 @@ const features = [
   },
 ];
 
+// =====================================
+// PRODUCT DATA - SIX ITEMS
+// =====================================
 
+const products = [
+  {
+    id: 1,
+    name: "Phones",
+    description: "Various brands, models, and affordable choices.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3e-0IiIy_UxqbVaqXTL3jhA2ZuRJ-FIFTa0HBCIRKLQ&s=10",
+  },
+  {
+    id: 2,
+    name: "Laptops",
+    description:
+      "Different brands and models for work, school, and everyday use.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2QgzOcNrJS09f_xO1b5wEc94uC4jFXSUi9NwF3mGGWg&s=10",
+  },
+  {
+    id: 3,
+    name: "Tablets",
+    description:
+      "Explore various tablets for entertainment and productivity.",
+    image:
+      "https://d1rlzxa98cyc61.cloudfront.net/catalog/product/cache/1801c418208f9607a371e61f8d9184d9/1/9/197233_2025_8.jpg",
+  },
+  {
+    id: 4,
+    name: "Gaming Consoles",
+    description:
+      "Gaming devices and consoles from different generations.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnvmE8FiGoT8qXZUzdKPmQ3lxbpTJ8CMaumIV3Ur0SDA&s=10",
+  },
+  {
+    id: 5,
+    name: "Smart TV",
+    description:
+      "Various TV brands, screen sizes, and models for every home.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnFbPq18qYaLkkLyud2ujtQYTw8EZ7QdIZmbnyCVZUsA&s=10",
+  },
+  {
+    id: 6,
+    name: "Action Cam",
+    description:
+      "Capture every adventure with action cameras from various brands.",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToXhJKz34A9i9ra2WUTjzrdPIB-pOf7UO5iGhJatV9MA&s=10",
+  },
+];
 
+// =====================================
+// HOME
+// =====================================
 
 const Home = () => {
   return (
     <div className="body">
-
       {/* HERO SECTION */}
 
       <section
-        className="hero h-[445px]"
+        className="hero"
         style={{
           backgroundImage: `
-      linear-gradient(
-        rgba(0, 0, 0, 0.3),
-        rgba(0, 0, 0, 0.3)
-      ),
-      url(${heroBg})
-    `,
+            linear-gradient(
+              rgba(0, 0, 0, 0.3),
+              rgba(0, 0, 0, 0.3)
+            ),
+            url(${heroBg})
+          `,
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
       >
+        <div className="hero-content">
+          <div className="hero-text">
+            <h1>Gawin Budget Ang Inyong Gadget</h1>
 
-       <div className="hero-content text-neutral-content text-center">
-
-          <div className="max-w-md">
-
-            <h1 className="mb-5 text-5xl font-bold">
-              Gawin Budget Ang Inyong Gadget
-            </h1>
-
-            <p className="mb-5">
-              MZE Pawnshop & Trading offers fast and hassle-free
-              pawnshop, buying, and selling services. Get the best
-              value for your items with secure and professional service.
+            <p>
+              MZE Pawnshop & Trading offers fast and hassle-free pawnshop,
+              buying, and selling services. Get the best value for your items
+              with secure and professional service.
             </p>
 
             <div className="hero-buttons">
-
               <a href="#pawnshop" className="btn-primary">
-                Pawn Now
-                <span className="arrow">→</span>
+                Pawn Now <span className="arrow">→</span>
               </a>
 
               <a href="#products" className="btn-secondary">
-                Our  Products
-                
+                Our Products
               </a>
-
             </div>
-
           </div>
-
         </div>
-
-
-        
       </section>
 
-
-      {/* WHY CHOOSE MZE SECTION */}
+      {/* WHY CHOOSE MZE */}
 
       <WhyChoose />
 
-
-      {/* WHAT WE PAWN & SELL SECTION */}
+      {/* PRODUCT CAROUSEL */}
 
       <PawnServices />
-
     </div>
   );
 };
 
-
-
+// =====================================
+// WHY CHOOSE MZE
+// =====================================
 
 const WhyChoose = () => {
   return (
     <section className="why-choose">
-
       <div className="why-container">
-
-        {/* LEFT CONTENT */}
-
         <div className="why-content">
+          <span className="why-label">WHY CHOOSE MZE?</span>
 
-          <span className="why-label">
-            WHY CHOOSE MZE?
-          </span>
-
-          <h2>
-            Trusted. Fair. Convenient.
-          </h2>
+          <h2>Trusted. Fair. Convenient.</h2>
 
           <p>
-            We make it easy for you to get the most value
-            for your items. With years of experience, we
-            are your reliable partner in financial solutions.
+            We make it easy for you to get the most value for your items. With
+            years of experience, we are your reliable partner in financial
+            solutions.
           </p>
 
           <a href="#about" className="why-button">
-            Learn More
-            <span>→</span>
+            Learn More <span>→</span>
           </a>
-
         </div>
-
-
-        {/* FEATURE CARDS */}
 
         <div className="why-features">
+          {features.map((feature) => (
+            <div className="why-card" key={feature.title}>
+              <div className="why-icon">{feature.icon}</div>
 
-          {features.map((feature, index) => (
+              <h3>{feature.title}</h3>
 
-            <div className="why-card" key={index}>
-
-              <div className="why-icon">
-                {feature.icon}
-              </div>
-
-              <h3>
-                {feature.title}
-              </h3>
-
-              <p>
-                {feature.description}
-              </p>
-
+              <p>{feature.description}</p>
             </div>
-
           ))}
-
         </div>
-
       </div>
-
     </section>
   );
 };
 
-
-
+// =====================================
+// PRODUCT CAROUSEL
+// =====================================
 
 const PawnServices = () => {
-  const [showAll, setShowAll] = useState(false);
+  const carouselRef = useRef(null);
+
+  const scrollCarousel = (direction) => {
+    if (!carouselRef.current) return;
+
+    carouselRef.current.scrollBy({
+      left: direction === "next" ? 450 : -450,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section className="services-section" id="products">
-
-      {/* SECTION HEADER */}
-
       <div className="services-header">
-
         <div className="services-heading">
+          <span className="section-label">OUR SERVICES</span>
 
-          <span className="section-label">
-            OUR SERVICES
-          </span>
-
-          <h2>
-            What We Pawn & Sell
-          </h2>
+          <h2>What We Pawn & Sell</h2>
 
           <p>
-            
             We accept a wide range of gadgets and electronic devices.
             <br />
-           Get cash today or shop for quality pre-owned gadgets.
+            Get cash today or shop for quality pre-owned gadgets.
           </p>
+        </div>
+      </div>
 
+      <div className="services-carousel-wrapper">
+        {/* PREVIOUS ARROW */}
+
+        <button
+          className="services-carousel-arrow services-arrow-left"
+          onClick={() => scrollCarousel("prev")}
+          aria-label="Previous products"
+        >
+          &#8249;
+        </button>
+
+        {/* SIX PRODUCT CARDS */}
+
+        <div className="services-grid" ref={carouselRef}>
+          {products.map((product) => (
+            <article className="service-product-card" key={product.id}>
+              <figure>
+                <img src={product.image} alt={product.name} loading="lazy" />
+              </figure>
+
+              <div className="product-info">
+                <h3>{product.name}</h3>
+
+                <p>{product.description}</p>
+              </div>
+            </article>
+          ))}
         </div>
 
-      
+        {/* NEXT ARROW */}
 
-      </div>
-
-
-      {/* SERVICES GRID */}
-
-    <div className="services-grid">
-
-  {/* PHONES */}
-  <div className="card bg-base-100 shadow-sm service-product-card">
-    <figure>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3e-0IiIy_UxqbVaqXTL3jhA2ZuRJ-FIFTa0HBCIRKLQ&s=10" alt="Phones" />
-    </figure>
-    <div className="card-body">
-      <h2 className="card-title">Phones</h2>
-      <p>Various brands, models, and affordable choices.</p>
-      {/* 5 STAR RATING */}
-      {/* <div className="product-rating">
-        <span>★★★★★</span>
-        
-      </div> */}
-    </div>
-  </div>
-
-  {/* LAPTOPS */}
-  <div className="card bg-base-100 shadow-sm service-product-card">
-    <figure>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2QgzOcNrJS09f_xO1b5wEc94uC4jFXSUi9NwF3mGGWg&s=10" alt="Laptops" />
-    </figure>
-    <div className="card-body">
-      <h2 className="card-title">Laptops</h2>
-      <p>Different brands and models for work, school, and everyday use.</p>
-      {/* 5 STAR RATING */}
-      {/* <div className="product-rating">
-        <span>★★★★★</span>
-        
-      </div> */}
-    </div>
-  </div>
-
-  {/* TABLETS */}
-  <div className="card bg-base-100 shadow-sm service-product-card">
-    <figure>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv1cWaSm_IMUsznXc_ctyNyD3pycDe_rnnRRCSKvW8Rg&s=10" alt="Tablets" />
-    </figure>
-    <div className="card-body">
-      <h2 className="card-title">Tablets</h2>
-      <p>Explore various tablets for entertainment and productivity.</p>
-      {/* 5 STAR RATING */}
-      {/* <div className="product-rating">
-        <span>★★★★★</span>
-        
-      </div> */}
-    </div>
-  </div>
-
-  {/* OTHER PRODUCTS - SHOW WHEN CLICKED */}
-{showAll && (
-  <>
-    {/* GAMING */}
-    <div className="card bg-base-100 shadow-sm service-product-card">
-      <figure>
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnvmE8FiGoT8qXZUzdKPmQ3lxbpTJ8CMaumIV3Ur0SDA&s=10"
-          alt="Gaming Consoles"
-        />
-      </figure>
-
-      <div className="card-body">
-        <h2 className="card-title">Gaming Consoles</h2>
-        <p>Gaming devices and consoles from different generations.</p>
-        {/* 5 STAR RATING */}
-      {/* <div className="product-rating">
-        <span>★★★★★</span>
-        
-      </div> */}
-      </div>
-    </div>
-
-    {/* SMART TV */}
-    <div className="card bg-base-100 shadow-sm service-product-card">
-      <figure>
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnFbPq18qYaLkkLyud2ujtQYTw8EZ7QdIZmbnyCVZUsA&s=10"
-          alt="Smart TV"
-        />
-      </figure>
-
-      <div className="card-body">
-        <h2 className="card-title">Smart TV</h2>
-        <p>Various TV brands, screen sizes, and models for every home.</p>
-        {/* 5 STAR RATING */}
-      {/* <div className="product-rating">
-        <span>★★★★★</span>
-        
-        
-      </div> */}
-      </div>
-    </div>
-
-    {/* ACTION CAM */}
-    <div className="card bg-base-100 shadow-sm service-product-card">
-      <figure>
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToXhJKz34A9i9ra2WUTjzrdPIB-pOf7UO5iGhJatV9MA&s=10"
-          alt="Action Cam"
-        />
-      </figure>
-
-      <div className="card-body">
-        <h2 className="card-title">Action Cam</h2>
-        <p>Capture every adventure with action cameras from various brands.</p>
-        {/* 5 STAR RATING */}
-      {/* <div className="product-rating">
-        <span>★★★★★</span>
-        
-      </div> */}
-      </div>
-    </div>
-  </>
-)}
-
- {/* VIEW ALL BUTTON */}
         <button
-          className="view-all"
-          onClick={() => setShowAll(!showAll)}
+          className="services-carousel-arrow services-arrow-right"
+          onClick={() => scrollCarousel("next")}
+          aria-label="Next products"
         >
-          {showAll ? 'Show Less ↑' : 'View All Products →'}
+          &#8250;
         </button>
-  
-
- 
-</div>
-
+      </div>
     </section>
-
-    
   );
 };
-
-
-// ==============================
-// EXPORT HOME
-// ==============================
 
 export default Home;

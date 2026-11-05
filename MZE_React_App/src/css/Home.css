@@ -1,426 +1,532 @@
-.hero-content p{
-  color: #ffffff;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+/* =====================================
+   GLOBAL / GENERAL
+===================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
-.hero-content h1{
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
- 
+
+html {
+  width: 100%;
+  scroll-behavior: smooth;
 }
-/* BUTTONS */
-/* HERO BUTTONS */
-.hero-buttons {
+
+body {
+  width: 100%;
+  margin: 0;
+  overflow-x: clip;
+}
+
+#root {
+  width: 100%;
+  min-width: 0;
+}
+
+.body {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+  background: #fff;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* =====================================
+   HERO SECTION
+===================================== */
+
+.hero {
+  width: 100%;
+  min-height: clamp(320px, 35vw, 500px);
+
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
-  flex-wrap: nowrap;
-  gap: 12px;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+
+  width: min(100%, 1100px);
+  min-width: 0;
+  padding: clamp(16px, 3vw, 40px);
+
+  color: #fff;
+  text-align: center;
+}
+
+.hero-text {
   width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.hero-content h1 {
+  margin: 0 0 20px;
   
+
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: clamp(24px, 3.5vw, 48px);
+  font-weight: bold;
+  line-height: 1.2;
+  overflow-wrap: break-word;
+}
+
+.hero-content p {
+  margin: 0 0 25px;
+
+ 
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: clamp(11px, 1.1vw, 14px);
+  line-height: 1.7;
+}
+
+/* Hero buttons */
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .hero-buttons a {
-  text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 50px;
-  border-radius: 10px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 12px;
-  font-weight: bold;
- 
-  white-space: nowrap;
-  transition: all 0.3s ease;
-}
 
+  padding: 12px clamp(18px, 2.5vw, 35px);
+  border-radius: 10px;
+
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: clamp(10px, 1vw, 12px);
+  font-weight: bold;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition: background 0.2s ease;
+}
 
 .btn-primary {
-  background: #7030A0;
+  background: #7030a0;
   color: #f3cc09;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  
- 
-  
 }
 
-/* .btn-primary:hover{
-  background: #7030A0;
-  color: #f3cc09;
-  border-color: #0c0b08;
-} */
-
-/* .arrow {
-  margin-left: 0;
-  font-size: 17px;
-} */
-
-/* SECONDARY BUTTON */
+.btn-primary:hover {
+  background: #5c2487;
+}
 
 .btn-secondary {
+  background: #fff;
   color: #0c0b08;
-
-  /* border: 1px solid #0c0b08; */
-  background: #ffffff;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-/* .btn-secondary:hover {
-  background: #7030A0;
-  color: #f3cc09;
-  border-color: #0c0b08;
-} */
+.btn-secondary:hover {
+  background: #eee;
+}
 
-
+.arrow {
+  margin-left: 6px;
+  font-size: 17px;
+}
 
 /* =====================================
-   WHAT WE PAWN & SELL SECTION
+   WHY CHOOSE MZE
 ===================================== */
-.why-choose{
-   width: 100%;
-  padding: 45px 5%;
-  background: #ffffff;
+
+.why-choose {
+  width: 100%;
+  padding: clamp(30px, 4vw, 60px) clamp(16px, 5vw, 80px);
+  background: #fff;
   font-family: Arial, sans-serif;
-
 }
-/* Main container */
+
 .why-container {
-  display: flex;
+  width: 100%;
+  max-width: 1400px;
+  min-width: 0;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
   align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  
+
+  gap: clamp(20px, 3vw, 45px);
 }
 
-/* Left content section */
 .why-content {
-  max-width: 550px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
-/* WHY CHOOSE MZE? label */
 .why-label {
   color: #140e01;
-  font-size: 14px;
-  font-weight: bold;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: clamp(11px, 1vw, 14px);
+  font-weight: bold;
   letter-spacing: 2px;
 }
 
-/* Heading */
 .why-content h2 {
-  font-size: 42px;
-  font-weight: 700;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: #222;
   margin: 15px 0;
-}
 
-/* Paragraph */
-.why-content p {
-  font-size: 13px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  
   color: #222;
-  
-
-}
-.why-content a{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 12px;
+  font-size: clamp(24px, 2.5vw, 42px);
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: break-word;
 }
 
-/* Learn More button */
+.why-content p {
+  color: #222;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: clamp(12px, 1vw, 14px);
+  line-height: 1.7;
+}
+
 .why-button {
   display: inline-flex;
   align-items: center;
   gap: 10px;
+
+  margin-top: 15px;
   padding: 8px 25px;
-  background-color: #7030A0;
+
+  background: #7030a0;
   color: #f3cc09;
-  text-decoration: none;
+
   border-radius: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
   font-weight: bold;
-  
+  text-decoration: none;
 }
 
-/* Button hover */
 .why-button:hover {
-  background-color: #7030A0;
+  background: #5c2487;
 }
-.why-features{
+
+/* Feature cards */
+
+.why-features {
+  width: 100%;
+  min-width: 0;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(8px, 1.5vw, 20px);
+
+  height: auto;
   color: #140e01;
 }
-.why-card{
+
+.why-card {
+  min-width: 0;
+  height: auto;
+  padding: clamp(10px, 1.5vw, 20px);
+
+  border: 1px solid #eee;
+  border-radius: 10px;
+
+  background: #faf8ff;
   color: #140e01;
 }
-.why-icon{
-  color: #140e01;
+
+.why-icon {
+  width: 38px;
+  height: 38px;
+  margin-bottom: 12px;
+  color: #7030a0;
 }
-.why-card h3{
+
+.why-icon svg {
+  width: 100%;
+  height: 100%;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.why-card h3 {
+  margin: 0 0 8px;
+
   color: #140e01;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: clamp(12px, 1.1vw, 16px);
+  font-weight: bold;
+  line-height: 1.4;
+
+  overflow-wrap: anywhere;
 }
-.why-card p{
+
+.why-card p {
+  margin: 0;
+
   color: #140e01;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: clamp(10px, 0.9vw, 13px);
+  line-height: 1.6;
+
+  overflow-wrap: anywhere;
 }
-/* next div the product */
+
+/* =====================================
+   SERVICES SECTION
+===================================== */
+
 .services-section {
   width: 100%;
-  padding: 45px 5%;
-  background: #ffffff;
+  padding: clamp(30px, 4vw, 60px) clamp(16px, 5vw, 80px);
+
+  background: #fff;
   font-family: Arial, sans-serif;
 }
 
-/* SECTION HEADER */
-
 .services-header {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto 25px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 22px;
 }
 
 .services-heading {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .section-label {
   color: #140e01;
-  font-size: 14px;
-  font-weight: bold;
-  letter-spacing: 2px;
-}
-.section-header span{
-  color: #140e01;
-  font-size: 14px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: clamp(11px, 1vw, 14px);
   font-weight: bold;
   letter-spacing: 2px;
 }
 
-.services-header h2 {
-  font-size: 42px;
-  font-weight: 700;
-  color: #222;
+.services-heading h2 {
   margin: 15px 0;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
 
-.services-header p {
-  font-size: 13px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  
   color: #222;
-}
-
-/* VIEW ALL PRODUCTS */
-
-.view-all {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  color: #eeedf4;
-  font-size: 13px;
-  font-weight: 800;
-  text-decoration: none;
-  transition: 0.3s;
-  background-color: #7653c5;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: bold;
-  
+  font-size: clamp(26px, 3vw, 42px);
+  font-weight: 700;
+  line-height: 1.2;
 }
 
-.view-all:hover {
-  color: #7653c5;
-  transform: translateX(3px);
+.services-heading p {
+  color: #222;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: clamp(12px, 1vw, 14px);
+  line-height: 1.7;
 }
-
 
 /* =====================================
-   SERVICES GRID
+   HORIZONTAL PRODUCT CAROUSEL
 ===================================== */
 
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-}
-
-
-/* =====================================
-   SERVICE CARD
-===================================== */
-
-.service-card {
-  min-height: 100px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  padding: 12px;
+.services-carousel-wrapper {
   position: relative;
 
-  background: #fafaff;
-  border: 1px solid #e5e5ee;
-  border-radius: 12px;
-
-  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-.service-card:hover {
-  transform: translateY(-4px);
-  border-color: #302078;
-  box-shadow: 0 5px 15px rgba(48, 32, 120, 0.10);
-}
+/* Product row */
 
-
-/* =====================================
-   CARD IMAGE / ICON
-===================================== */
-
-.service-image {
-  width: 65px;
-  min-width: 65px;
-  height: 65px;
-
+.services-grid {
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  flex-direction: row;
+  align-items: stretch;
 
-.service-image span {
-  font-size: 40px;
-}
-
-
-
-/* =====================================
-   CARD INFORMATION
-===================================== */
-
-.service-info {
-  flex: 1;
+  gap: 12px;
+  width: 100%;
   min-width: 0;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  padding: 0 22px;
+
+  scroll-behavior: smooth;
+  scrollbar-width: none;
 }
 
-.service-info h3 {
-  font-size: 11px;
-  font-weight: 700;
-  color: #202039;
-  margin: 0 0 7px;
+.services-grid::-webkit-scrollbar {
+  display: none;
 }
 
-.service-info p {
-  font-size: 9px;
-  color: #777777;
-  line-height: 1.4;
+/* Product card */
+
+.service-product-card {
+  flex: 0 0 clamp(220px, 25%, 320px);
+  min-width: 0;
+  height: auto;
+
+  overflow: hidden;
+  background: #fff;
+  border-radius: 5px;
+}
+
+/* Product image */
+
+.service-product-card figure {
+  width: 100%;
+  height: clamp(200px, 22vw, 350px);
   margin: 0;
+
+  overflow: hidden;
+  background: #f1f1f1;
+  border-radius: 5px;
 }
 
+.service-product-card figure img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  padding: 12px;
+}
+
+/* Product information */
+
+.product-info {
+  padding: 18px 0;
+}
+
+.product-info h3 {
+  margin: 0 0 12px;
+
+  color: #222;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: clamp(15px, 1.5vw, 20px);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.product-info p {
+  margin: 0;
+
+  color: #666;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: clamp(11px, 1.1vw, 15px);
+  line-height: 1.5;
+}
 
 /* =====================================
-   CARD ARROW
+   CAROUSEL ARROWS
 ===================================== */
 
-.card-arrow {
+.services-carousel-arrow {
   position: absolute;
-  right: 9px;
-  bottom: 9px;
-
-  width: 18px;
-  height: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: #39228a;
-  color: #ffffff;
+  width: 48px;
+  height: 48px;
 
+  border: none;
   border-radius: 50%;
-  font-size: 11px;
-  text-decoration: none;
 
-  transition: 0.3s;
+  background: #fff;
+  color: #222;
+
+  font-size: 32px;
+  font-weight: 300;
+  cursor: pointer;
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+  transition: background 0.2s ease;
 }
 
-.card-arrow:hover {
-  background: #7653c5;
-  transform: scale(1.1);
+.services-carousel-arrow:hover {
+  background: #eee;
 }
-.card-body h2{
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+.services-arrow-left {
+  left: 5px;
 }
-.card-body p {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+.services-arrow-right {
+  right: 5px;
 }
 
 /* =====================================
-   TABLET RESPONSIVE
+   TABLET
 ===================================== */
 
 @media (max-width: 1024px) {
-
   .why-container {
+    grid-template-columns: 1fr;
     gap: 25px;
   }
 
   .why-content {
-    max-width: 400px;
+    max-width: 700px;
   }
 
-  .why-content h2 {
-    font-size: 32px;
-  }
-
-  .services-grid {
+  .why-features {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .service-product-card {
+    flex: 0 0 32%;
+  }
 }
-
 
 /* =====================================
    MOBILE RESPONSIVE
 ===================================== */
 
 @media (max-width: 768px) {
-
-  
-
-  /* HERO SECTION */
+  /* Hero */
 
   .hero {
+    min-height: 400px;
     height: auto;
-    min-height: 445px;
-    padding: 50px 30px;
-    background-size: cover !important;
-    background-position: center !important;
-    
-  }
-  /* .hero-overlay {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 1);
+    padding: 40px 20px;
 
-  } */
+    background-size: cover;
+    background-position: center;
+  }
 
   .hero-content {
     width: 100%;
     padding: 0;
   }
 
-  .hero-content .max-w-md {
-    max-width: 100%;
-  }
-
   .hero-content h1 {
-    font-size: 32px;
+    font-size: clamp(24px, 6vw, 32px);
     line-height: 1.2;
-    margin-bottom: 18px;
   }
 
   .hero-content p {
@@ -428,38 +534,25 @@
     line-height: 1.6;
   }
 
-  /* KEEP TWO BUTTONS INLINE */
-
   .hero-buttons {
-    display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
+    gap: 10px;
   }
 
   .hero-buttons a {
     padding: 12px 30px;
     font-size: 11px;
-    flex: 0 1 auto;
   }
 
-  .arrow {
-    margin-left: 6px;
-  }
-
-
-  /* WHY CHOOSE MZE */
+  /* Why Choose */
 
   .why-choose {
-    padding: 40px 6%;
+    padding: 35px 5%;
   }
 
   .why-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 30px;
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 
   .why-content {
@@ -467,23 +560,16 @@
   }
 
   .why-content h2 {
-    font-size: 30px;
-  }
-
-  .why-content p {
-    font-size: 13px;
-    line-height: 1.7;
+    font-size: clamp(24px, 6vw, 30px);
   }
 
   .why-features {
-    display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 15px;
-    width: 100%;
+    gap: 12px;
   }
 
   .why-card {
-    padding: 15px;
+    padding: 14px;
   }
 
   .why-card h3 {
@@ -494,11 +580,10 @@
     font-size: 12px;
   }
 
-
-  /* SERVICES SECTION */
+  /* Services */
 
   .services-section {
-    padding: 40px 6%;
+    padding: 35px 5%;
   }
 
   .services-header {
@@ -508,35 +593,67 @@
   }
 
   .services-heading h2 {
-    font-size: 30px;
+    font-size: clamp(24px, 6vw, 30px);
   }
 
   .services-heading p {
     font-size: 12px;
     line-height: 1.6;
   }
-  .services-heading span{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: bold;
-  }
+
+  /* Mobile swipe carousel */
 
   .services-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
+    padding: 0 14px;
+
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
   }
 
+  .service-product-card {
+    flex: 0 0 50%;
+    width: 50%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .service-product-card figure {
+    height: 260px;
+  }
+
+  .service-product-card figure img {
+    padding: 10px;
+  }
+
+  .product-info {
+    padding: 14px 0;
+  }
+
+  .product-info h3 {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .product-info p {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  /* Hide arrows on mobile */
+
+  .services-carousel-arrow {
+    display: none;
+  }
 }
 
-
 /* =====================================
-   SMALL MOBILE PHONES
+   SMALL MOBILE
 ===================================== */
 
 @media (max-width: 480px) {
-
   .hero {
-    min-height: 400px;
-    padding: 40px 12px;
+    min-height: 360px;
+    padding: 35px 12px;
   }
 
   .hero-content h1 {
@@ -547,20 +664,14 @@
     font-size: 11px;
   }
 
-  /* BUTTONS REMAIN INLINE */
-
-  .hero-buttons {
-    gap: 10px;
-  }
-
   .hero-buttons a {
-    padding: 18px 80px;
+    padding: 12px 25px;
     font-size: 10px;
   }
 
-  .arrow {
-    font-size: 13px;
-    margin-left: 4px;
+  .why-choose,
+  .services-section {
+    padding: 30px 5%;
   }
 
   .why-content h2 {
@@ -568,138 +679,65 @@
   }
 
   .why-features {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .why-card {
+    padding: 12px;
+  }
+
+  .why-card h3 {
+    font-size: 13px;
+  }
+
+  .why-card p {
+    font-size: 11px;
   }
 
   .services-heading h2 {
     font-size: 26px;
   }
 
-  /* .services-grid {
-    grid-template-columns: 1fr;
-  } */
-
-  .service-card {
-    min-height: 90px;
-  }
-
-}
-
-/* CARD SIZE */
-.service-product-card {
-  width: 100px;
-  height: 150px;
-  overflow: hidden;
-  border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* HOVER EFFECT */
-.service-product-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
-
-/* IMAGE SIZE */
-.service-product-card figure {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-}
-
-.service-product-card figure img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-/* CARD BODY */
-.service-product-card .card-body {
-  padding: 10px;
-}
-
-.service-product-card .card-title {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.service-product-card p {
-  font-size: 13px;
-}
-
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-  width: 100%;
-}
-.product-rating {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: none;
-}
-
-.product-rating span {
-  color: #f5a623;
-  font-size: 20px;
-  letter-spacing: 2px;
-}
-
-.product-rating small {
-  color: #666;
-  font-size: 14px;
-}
-.view-all {
-  background: none ;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 200;
-  color: #0c0b08;
-}
-
-.service-product-card {
-  width: 100%;
-  min-width: 0;
-  height: 320px;
-  overflow: hidden;
-  border-radius: 12px;
-}
-
-.service-product-card figure {
-  width: 100%;
-  height: 180px;
-  overflow: hidden;
-}
-
-.service-product-card figure img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-/* TABLET */
-@media (max-width: 900px) {
   .services-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-/* MOBILE */
-@media (max-width: 480px) {
-  .services-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
+    padding: 0 12px;
   }
 
   .service-product-card {
-    height: 280px;
+    flex: 0 0 50%;
+    width: 50%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .service-product-card figure {
-    height: 140px;
+    height: 220px;
+  }
+
+  .product-info h3 {
+    font-size: 15px;
+  }
+
+  .product-info p {
+    font-size: 11px;
   }
 }
 
+/* =====================================
+   VERY NARROW MOBILE
+===================================== */
+
+@media (max-width: 360px) {
+  .why-features {
+    grid-template-columns: 1fr;
+  }
+
+  .why-card {
+    padding: 14px;
+  }
+
+  .service-product-card {
+    flex: 0 0 90%;
+    width: 90%;
+  }
+}
