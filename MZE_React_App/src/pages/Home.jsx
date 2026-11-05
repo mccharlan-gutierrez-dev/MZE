@@ -9,16 +9,7 @@ import { useState } from 'react';
 
 import heroBg from "../assets/Hero section Bg.png";
 
-// import smartphonesImg from "../assets/nov1.jpg";
-// import laptopsImg from "../assets/nov2.jpg";
-// import gamingImg from "../assets/nov3.jpg";
-// import camerasImg from "../assets/nov4.jpg";
 
-
-
-// ==============================
-// WHY CHOOSE MZE FEATURES DATA
-// ==============================
 
 const features = [
   {
@@ -65,40 +56,7 @@ const features = [
 ];
 
 
-// ==============================
-// PAWN & SELL SERVICES DATA
-// ==============================
 
-// const services = [
-//   {
-//     title: "Smartphones & Tablets",
-//     description: "Latest models & trusted brands",
-//     image: smartphonesImg,
-//   },
-//   {
-//     title: "Laptops & Computers",
-//     description: "Work, study, create",
-//     image: laptopsImg,
-//   },
-//   {
-//     title: "Gaming Consoles",
-//     description: "Play more, spend less",
-//     image: gamingImg,
-//   },
-//   {
-//     title: "Cameras & Accessories",
-//     description: "Capture your moments",
-//     image: camerasImg,
-//   },
-  
-  
-  
-// ];
-
-
-// ==============================
-// MAIN HOME COMPONENT
-// ==============================
 
 const Home = () => {
   return (
@@ -109,16 +67,19 @@ const Home = () => {
       <section
         className="hero h-[445px]"
         style={{
-          backgroundImage: `url(${heroBg})`,
-          backgroundSize: "contain",
+          backgroundImage: `
+      linear-gradient(
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.3)
+      ),
+      url(${heroBg})
+    `,
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
       >
 
-        <div className="hero-overlay"></div>
-
-        <div className="hero-content text-neutral-content text-center">
+       <div className="hero-content text-neutral-content text-center">
 
           <div className="max-w-md">
 
@@ -150,6 +111,8 @@ const Home = () => {
 
         </div>
 
+
+        
       </section>
 
 
@@ -167,9 +130,7 @@ const Home = () => {
 };
 
 
-// ==============================
-// WHY CHOOSE MZE COMPONENT
-// ==============================
+
 
 const WhyChoose = () => {
   return (
@@ -236,9 +197,7 @@ const WhyChoose = () => {
 };
 
 
-// ==============================
-// PAWN & SELL SERVICES COMPONENT
-// ==============================
+
 
 const PawnServices = () => {
   const [showAll, setShowAll] = useState(false);
@@ -286,10 +245,10 @@ const PawnServices = () => {
       <h2 className="card-title">Phones</h2>
       <p>Various brands, models, and affordable choices.</p>
       {/* 5 STAR RATING */}
-      <div className="product-rating">
+      {/* <div className="product-rating">
         <span>★★★★★</span>
         
-      </div>
+      </div> */}
     </div>
   </div>
 
@@ -302,10 +261,10 @@ const PawnServices = () => {
       <h2 className="card-title">Laptops</h2>
       <p>Different brands and models for work, school, and everyday use.</p>
       {/* 5 STAR RATING */}
-      <div className="product-rating">
+      {/* <div className="product-rating">
         <span>★★★★★</span>
         
-      </div>
+      </div> */}
     </div>
   </div>
 
@@ -318,10 +277,10 @@ const PawnServices = () => {
       <h2 className="card-title">Tablets</h2>
       <p>Explore various tablets for entertainment and productivity.</p>
       {/* 5 STAR RATING */}
-      <div className="product-rating">
+      {/* <div className="product-rating">
         <span>★★★★★</span>
         
-      </div>
+      </div> */}
     </div>
   </div>
 
@@ -341,10 +300,10 @@ const PawnServices = () => {
         <h2 className="card-title">Gaming Consoles</h2>
         <p>Gaming devices and consoles from different generations.</p>
         {/* 5 STAR RATING */}
-      <div className="product-rating">
+      {/* <div className="product-rating">
         <span>★★★★★</span>
         
-      </div>
+      </div> */}
       </div>
     </div>
 
@@ -361,11 +320,11 @@ const PawnServices = () => {
         <h2 className="card-title">Smart TV</h2>
         <p>Various TV brands, screen sizes, and models for every home.</p>
         {/* 5 STAR RATING */}
-      <div className="product-rating">
+      {/* <div className="product-rating">
         <span>★★★★★</span>
         
         
-      </div>
+      </div> */}
       </div>
     </div>
 
@@ -382,10 +341,10 @@ const PawnServices = () => {
         <h2 className="card-title">Action Cam</h2>
         <p>Capture every adventure with action cameras from various brands.</p>
         {/* 5 STAR RATING */}
-      <div className="product-rating">
+      {/* <div className="product-rating">
         <span>★★★★★</span>
         
-      </div>
+      </div> */}
       </div>
     </div>
   </>

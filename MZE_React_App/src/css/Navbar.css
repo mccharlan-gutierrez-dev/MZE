@@ -54,7 +54,8 @@
 .nav-link {
     font-size: 15px;
     font-weight: 500;
-    color: #f3cc09;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #000;
     text-decoration: none;
 
     background: transparent;
@@ -186,6 +187,7 @@
         padding: 12px;
         font-size: 14px;
         color: #ffffff;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
 
     /* MOBILE SEARCH */

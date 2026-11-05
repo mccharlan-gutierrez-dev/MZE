@@ -1,3 +1,11 @@
+.hero-content p{
+  color: #ffffff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.hero-content h1{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+ 
+}
 /* BUTTONS */
 /* HERO BUTTONS */
 .hero-buttons {
@@ -16,27 +24,31 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 40px;
+  padding: 10px 50px;
   border-radius: 10px;
-  font-size: 13px;
-  font-weight: 500;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+ 
   white-space: nowrap;
   transition: all 0.3s ease;
 }
 
 
 .btn-primary {
-  background: #ffffff;
-  color: #0c0b08;
+  background: #7030A0;
+  color: #f3cc09;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  
  
   
 }
 
-.btn-primary:hover{
+/* .btn-primary:hover{
   background: #7030A0;
-  color: #ffffff;
+  color: #f3cc09;
   border-color: #0c0b08;
-}
+} */
 
 /* .arrow {
   margin-left: 0;
@@ -50,13 +62,14 @@
 
   /* border: 1px solid #0c0b08; */
   background: #ffffff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.btn-secondary:hover {
+/* .btn-secondary:hover {
   background: #7030A0;
-  color: #ffffff;
+  color: #f3cc09;
   border-color: #0c0b08;
-}
+} */
 
 
 
@@ -89,6 +102,7 @@
   color: #140e01;
   font-size: 14px;
   font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   letter-spacing: 2px;
 }
 
@@ -96,6 +110,7 @@
 .why-content h2 {
   font-size: 42px;
   font-weight: 700;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #222;
   margin: 15px 0;
 }
@@ -103,10 +118,15 @@
 /* Paragraph */
 .why-content p {
   font-size: 13px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   
   color: #222;
   
 
+}
+.why-content a{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
 }
 
 /* Learn More button */
@@ -138,9 +158,11 @@
 }
 .why-card h3{
   color: #140e01;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .why-card p{
   color: #140e01;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 /* next div the product */
 .services-section {
@@ -182,10 +204,12 @@
   font-weight: 700;
   color: #222;
   margin: 15px 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .services-header p {
   font-size: 13px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   
   color: #222;
 }
@@ -202,6 +226,8 @@
   text-decoration: none;
   transition: 0.3s;
   background-color: #7653c5;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
   
 }
 
@@ -268,6 +294,7 @@
 }
 
 
+
 /* =====================================
    CARD INFORMATION
 ===================================== */
@@ -322,6 +349,12 @@
   background: #7653c5;
   transform: scale(1.1);
 }
+.card-body h2{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.card-body p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
 /* =====================================
    TABLET RESPONSIVE
@@ -361,18 +394,19 @@
   .hero {
     height: auto;
     min-height: 445px;
-    padding: 50px 20px;
+    padding: 50px 30px;
     background-size: cover !important;
     background-position: center !important;
+    
   }
-  .hero-overlay {
+  /* .hero-overlay {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-      background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 1);
 
-  }
+  } */
 
   .hero-content {
     width: 100%;
@@ -481,6 +515,10 @@
     font-size: 12px;
     line-height: 1.6;
   }
+  .services-heading span{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+  }
 
   .services-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -516,7 +554,7 @@
   }
 
   .hero-buttons a {
-    padding: 11px 45px;
+    padding: 11px 60px;
     font-size: 10px;
   }
 
@@ -664,3 +702,4 @@
     height: 140px;
   }
 }
+
