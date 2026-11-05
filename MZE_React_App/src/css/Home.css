@@ -550,11 +550,11 @@
   /* BUTTONS REMAIN INLINE */
 
   .hero-buttons {
-    gap: 6px;
+    gap: 10px;
   }
 
   .hero-buttons a {
-    padding: 11px 80px;
+    padding: 18px 80px;
     font-size: 10px;
   }
 
