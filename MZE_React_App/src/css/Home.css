@@ -80,7 +80,7 @@ img {
 
   font-family: 'Caveat', cursive;
   font-size: clamp(45px, 3vw, 43px);
-  color: yellow;
+  color: #ffff;
   font-weight: bold;
   line-height: 1.2;
   overflow-wrap: break-word;
