@@ -1144,7 +1144,7 @@ position: relative;
 
   .promo-carousel {
     width: 100%;
-    min-height: 150px;
+    min-height: 200px;
     aspect-ratio: 16 / 9;
     border-radius: 12px;
   }

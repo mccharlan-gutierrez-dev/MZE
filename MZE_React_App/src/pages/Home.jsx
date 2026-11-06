@@ -419,22 +419,22 @@ const PromoCarousel = () => {
         </div>
 
         {/* Previous Button */}
-        <button
+        {/* <button
           className="promo-arrow promo-prev"
           onClick={prevSlide}
           aria-label="Previous promotion"
         >
           ❮
-        </button>
+        </button> */}
 
         {/* Next Button */}
-        <button
+        {/* <button
           className="promo-arrow promo-next"
           onClick={nextSlide}
           aria-label="Next promotion"
         >
           ❯
-        </button>
+        </button> */}
 
       </div>
 
