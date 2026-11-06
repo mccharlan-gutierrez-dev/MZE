@@ -667,7 +667,7 @@ img {
   }
 
   .hero-buttons a {
-    padding: 12px 25px;
+    padding: 12px 40px;
     font-size: 10px;
   }
 
@@ -730,6 +730,10 @@ img {
 ===================================== */
 
 @media (max-width: 360px) {
+    .hero-buttons a {
+    padding: 12px 40px;
+    font-size: 10px;
+  }
   .why-features {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
