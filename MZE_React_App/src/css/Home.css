@@ -142,8 +142,9 @@ img {
 }
 
 .arrow {
-  margin-left: 6px;
-  font-size: 17px;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
 }
 
 /* =====================================
