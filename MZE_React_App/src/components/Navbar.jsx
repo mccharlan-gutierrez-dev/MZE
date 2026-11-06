@@ -49,14 +49,18 @@ const Navbar = () => {
         </Link>
 
         <Link to="/contact" className="nav-link" onClick={closeMenu}>
+          Branches
+        </Link>
+
+        <Link to="/contact" className="nav-link" onClick={closeMenu}>
           Contact
         </Link>
 
-        <input
+        {/* <input
           type="text"
           placeholder="Search"
           className="input"
-        />
+        /> */}
 
       </div>
 

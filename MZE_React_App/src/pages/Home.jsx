@@ -1,7 +1,12 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import "../css/Home.css";
 
 import heroBg from "../assets/Hero section Bg.png";
+
+// Import promotional images
+import christmasPromo from "../assets/christmas.png";
+import newYearPromo from "../assets/quote.jpg";
+import summerPromo from "../assets/allsaints.png";
 
 // =====================================
 // WHY CHOOSE MZE FEATURES
@@ -109,6 +114,24 @@ const products = [
 // HOME
 // =====================================
 
+const promotions = [
+  {
+    id: 1,
+    image: christmasPromo,
+    alt: "Christmas Holiday Promo",
+  },
+  {
+    id: 2,
+    image: newYearPromo,
+    alt: "New Year Promo",
+  },
+  {
+    id: 3,
+    image: summerPromo,
+    alt: "Summer Promo",
+  },
+];
+
 const Home = () => {
   return (
     <div className="body">
@@ -126,6 +149,7 @@ const Home = () => {
           `,
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
+          
         }}
       >
         <div className="hero-content">
@@ -158,6 +182,10 @@ const Home = () => {
       {/* PRODUCT CAROUSEL */}
 
       <PawnServices />
+
+        {/* HOW IT WORKS */}
+      <HowItWorks />
+      <PromoCarousel/>
     </div>
   );
 };
@@ -276,5 +304,157 @@ const PawnServices = () => {
     </section>
   );
 };
+
+const HowItWorks = () => {
+  return(
+     <section className="how-it-works">
+
+      <div className="process-header">
+        <span className="section-label">HOW IT WORKS</span>
+
+        <h2>Simple 3-Step Process</h2>
+
+        <p>
+          Getting cash or buying your favorite items is quick and easy.
+        </p>
+      </div>
+
+      <div className="process-container">
+
+        {/* STEP 1 */}
+        <div className="process-step">
+          <div className="step-number">1</div>
+
+          <h3>Bring Your Item</h3>
+
+          <p>
+            Visit any of our branches and present your item.
+          </p>
+        </div>
+
+        <div className="step-arrow">→</div>
+
+        {/* STEP 2 */}
+        <div className="process-step">
+          <div className="step-number">2</div>
+
+          <h3>Get Appraisal</h3>
+
+          <p>
+            We'll evaluate and give you the best value.
+          </p>
+        </div>
+
+        <div className="step-arrow">→</div>
+
+        {/* STEP 3 */}
+        <div className="process-step">
+          <div className="step-number">3</div>
+
+          <h3>Receive Cash</h3>
+
+          <p>
+            Get your cash instantly and securely.
+          </p>
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+const PromoCarousel = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Next slide
+  const nextSlide = () => {
+    setCurrentSlide((prev) =>
+      (prev + 1) % promotions.length
+    );
+  };
+
+  // Previous slide
+  const prevSlide = () => {
+    setCurrentSlide((prev) =>
+      (prev - 1 + promotions.length) % promotions.length
+    );
+  };
+
+  // Automatically change slide every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <section className="promo-section">
+
+      {/* Section Header */}
+      <div className="promo-header">
+
+        <div className="promo-heading">
+          <span></span>
+          <h2>Latest Promos & Announcements</h2>
+        </div>
+
+        {/* <button className="view-promos-btn">
+          View All Promos
+          <span>→</span>
+        </button> */}
+
+      </div>
+
+      {/* Carousel */}
+      <div className="promo-carousel">
+
+        {/* Promotional Image */}
+        <div className="promo-slide" key={currentSlide}>
+          <img
+            src={promotions[currentSlide].image}
+            alt={promotions[currentSlide].alt}
+          />
+        </div>
+
+        {/* Previous Button */}
+        <button
+          className="promo-arrow promo-prev"
+          onClick={prevSlide}
+          aria-label="Previous promotion"
+        >
+          ❮
+        </button>
+
+        {/* Next Button */}
+        <button
+          className="promo-arrow promo-next"
+          onClick={nextSlide}
+          aria-label="Next promotion"
+        >
+          ❯
+        </button>
+
+      </div>
+
+      {/* Carousel Indicators */}
+      <div className="promo-dots">
+        {promotions.map((promo, index) => (
+          <button
+            key={promo.id}
+            className={`promo-dot ${
+              currentSlide === index ? "active" : ""
+            }`}
+            onClick={() => setCurrentSlide(index)}
+            aria-label={`Go to promotion ${index + 1}`}
+          />
+        ))}
+      </div>
+
+    </section>
+  );
+};
+
 
 export default Home;

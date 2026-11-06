@@ -80,7 +80,7 @@ img {
 
   font-family: 'Caveat', cursive;
   font-size: clamp(45px, 3vw, 43px);
-  color: #ffff;
+  color: #f3cc09;
   font-weight: bold;
   line-height: 1.2;
   overflow-wrap: break-word;
@@ -745,3 +745,419 @@ img {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* how it works */
+.how-it-works {
+  padding: 60px 5%;
+  background: #ffffff;
+  color: #000;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* HEADER */
+.process-header {
+  margin-bottom: 40px;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #29256d;
+}
+
+.process-header h2 {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 8px 0;
+}
+
+.process-header p {
+  font-size: 15px;
+  color: #666;
+  margin: 0;
+}
+
+/* PROCESS CONTAINER */
+.process-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* EACH STEP */
+.process-step {
+  flex: 1;
+  min-width: 0;
+}
+
+.step-number {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+
+  background: #f0eaff;
+  color: #48218c;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  margin-bottom: 15px;
+}
+
+.process-step h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.process-step p {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  max-width: 250px;
+}
+
+/* ARROW */
+.step-arrow {
+  flex: 0 0 60px;
+  color: #d8d8e5;
+  font-size: 28px;
+  text-align: center;
+  padding-top: 8px;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .how-it-works {
+    padding: 40px 20px;
+  }
+
+  .process-header h2 {
+    font-size: 18px;
+  }
+  .process-header p {
+    font-size: 8;
+  }
+
+  .process-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .process-step {
+    width: 100%;
+    min-width: 0;
+ 
+  }
+
+  .step-arrow {
+    display: none;
+  }
+
+  .process-step p {
+    max-width: 100%;
+    font-size: 10px;
+  }
+  .process-step h3{
+    font-size: 12px;
+  }
+}
+
+/* promo carousel */
+
+/* ==============================
+   PROMO SECTION
+============================== */
+
+.promo-section {
+  width: 100%;
+  padding: 15px 3%;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+/* ==============================
+   PROMO HEADER
+============================== */
+
+.promo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.promo-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.promo-megaphone {
+  font-size: 25px;
+  color: #5b21b6;
+}
+
+.promo-heading h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #11165b;
+  margin: 0;
+}
+
+.view-promos-btn {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 9px 18px;
+  border: 1.5px solid #6625bd;
+  border-radius: 30px;
+  background: white;
+  color: #391078;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-promos-btn span {
+  font-size: 17px;
+}
+
+.view-promos-btn:hover {
+  background: #5b21b6;
+  color: white;
+}
+
+/* ==============================
+   PROMO CAROUSEL
+============================== */
+
+.promo-carousel {
+position: relative;
+  width: 100%;
+  max-width: 1500px;
+  aspect-ratio: 16 / 9;
+
+  /* Increase slide size */
+  min-height: 350px;
+
+  overflow: hidden;
+  border-radius: 0px;
+  margin: 0 auto;
+}
+
+.promo-slide {
+  width: 100%;
+  height: 100%;
+  animation: promoFade 0.5s ease;
+  overflow: hidden;
+}
+
+.promo-slide img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+ 
+}
+
+@keyframes promoFade {
+  from {
+    opacity: 0.5;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ==============================
+   CAROUSEL ARROWS
+============================== */
+.promo-section{
+  
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.promo-heading h2{
+  color: #000;
+}
+.promo-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.promo-arrow:hover {
+  background: #5b21b6;
+  color: white;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.promo-prev {
+  left: 15px;
+}
+
+.promo-next {
+  right: 15px;
+}
+
+/* ==============================
+   CAROUSEL DOTS
+============================== */
+
+.promo-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  margin-top: 12px;
+}
+
+.promo-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: #c9c1df;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.promo-dot.active {
+  background: #5714a5;
+  transform: scale(1.05);
+}
+
+.promo-dot:hover {
+  background: #7b36c5;
+}
+
+/* ==============================
+   TABLET RESPONSIVENESS
+============================== */
+
+@media (max-width: 768px) {
+
+  .promo-section {
+    padding: 15px 3%;
+  }
+
+  .promo-heading h2 {
+    font-size: 17px;
+  }
+
+  .promo-carousel {
+    height: 150px;
+    border-radius: 15px;
+  }
+
+  .promo-arrow {
+    width: 38px;
+    height: 38px;
+    font-size: 17px;
+  }
+
+  .promo-prev {
+    left: 10px;
+  }
+
+  .promo-next {
+    right: 10px;
+  }
+
+}
+
+/* ==============================
+   MOBILE RESPONSIVENESS
+============================== */
+
+@media (max-width: 480px) {
+
+  .promo-section {
+    padding: 10px 3%;
+  }
+
+  .promo-header {
+    gap: 8px;
+  }
+
+  .promo-heading {
+    gap: 5px;
+  }
+
+  .promo-heading h2 {
+    font-size: 13px;
+    margin: 0;
+  }
+
+  .promo-megaphone {
+    font-size: 19px;
+  }
+
+  .view-promos-btn {
+    padding: 7px 10px;
+    gap: 5px;
+    font-size: 9px;
+    white-space: nowrap;
+  }
+
+  .view-promos-btn span {
+    font-size: 13px;
+  }
+
+  .promo-carousel {
+    width: 100%;
+    min-height: 150px;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+  }
+
+  .promo-slide {
+    width: 100%;
+    height: 100%;
+  }
+
+  .promo-arrow {
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+  }
+
+  .promo-dots {
+   margin-top: 5px;
+    margin-bottom: 0;
+    gap: 7px;
+  }
+
+  .promo-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+}
+
