@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import logo from '../assets/mze_nav_logo.jpg';
 import '../css/Navbar.css';
@@ -7,9 +7,24 @@ import '../css/Navbar.css';
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // Close menu
   const closeMenu = () => {
     setMenuOpen(false);
   };
+
+  // Toggle menu
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  // Prevent background scrolling when menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen]);
 
   return (
     <nav className="custom-navbar">
@@ -17,33 +32,33 @@ const Navbar = () => {
       {/* LOGO */}
       <div className="navbar-start">
         <Link to="/" onClick={closeMenu}>
-          <img src={logo} alt="MZE" className="navbar-logo" />
+          <img
+            src={logo}
+            alt="MZE Pawnshop"
+            className="navbar-logo"
+          />
         </Link>
       </div>
 
-      {/* HAMBURGER BUTTON */}
+      {/* HAMBURGER TO X BUTTON */}
       <button
-      className={`menu-toggle ${menuOpen ? 'active' : ''}`}
-      onClick={() => setMenuOpen(!menuOpen)}
-      aria-label="Toggle navigation menu"
-      aria-expanded={menuOpen}
-    >
-      <span></span>
-      <span></span>
-      <span></span>
+        type="button"
+        className={`menu-toggle ${menuOpen ? 'active' : ''}`}
+        onClick={toggleMenu}
+        aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+        aria-expanded={menuOpen}
+        aria-controls="main-navigation"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
 
       {/* NAVIGATION LINKS */}
-      <div className={`navbar-end navbar-links ${menuOpen ? 'active' : ''}`}>
-
-        {/* CLOSE BUTTON - MOBILE ONLY */}
-        <button
-          className="mobile-close-btn"
-          onClick={closeMenu}
-          aria-label="Close navigation menu"
-        >
-          &times;
-        </button>
+      <div
+        id="main-navigation"
+        className={`navbar-end navbar-links ${menuOpen ? 'active' : ''}`}
+      >
 
         <Link to="/" className="nav-link" onClick={closeMenu}>
           Home
@@ -53,11 +68,11 @@ const Navbar = () => {
           About
         </Link>
 
-        <Link to="/about" className="nav-link" onClick={closeMenu}>
+        <Link to="/services" className="nav-link" onClick={closeMenu}>
           Services
         </Link>
 
-        <Link to="/contact" className="nav-link" onClick={closeMenu}>
+        <Link to="/branches" className="nav-link" onClick={closeMenu}>
           Branches
         </Link>
 
