@@ -23,14 +23,14 @@ const Navbar = () => {
 
       {/* HAMBURGER BUTTON */}
       <button
-        className="menu-toggle"
-        onClick={() => setMenuOpen(!menuOpen)}
-        aria-label="Toggle navigation menu"
-        aria-expanded={menuOpen}
-      >
-        <span></span>
-        <span></span>
-        <span></span>
+      className={`menu-toggle ${menuOpen ? 'active' : ''}`}
+      onClick={() => setMenuOpen(!menuOpen)}
+      aria-label="Toggle navigation menu"
+      aria-expanded={menuOpen}
+    >
+      <span></span>
+      <span></span>
+      <span></span>
       </button>
 
       {/* NAVIGATION LINKS */}

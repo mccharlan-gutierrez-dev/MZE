@@ -103,10 +103,104 @@
     color: #999999;
 }
 
+
 /* =====================================
-   HAMBURGER MENU
+   HAMBURGER ANIMATION
 ===================================== */
 
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    width: 42px;
+    height: 42px;
+
+    padding: 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    z-index: 3000;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+
+    background-color: #7030A0;
+    border-radius: 5px;
+
+    transition: all 0.35s ease;
+    transform-origin: center;
+}
+
+/* FIRST LINE */
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    background-color: #000;
+}
+
+/* MIDDLE LINE */
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+/* =====================================
+   HAMBURGER ANIMATION
+===================================== */
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    width: 42px;
+    height: 42px;
+
+    padding: 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    z-index: 3000;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+
+    background-color: #7030A0;
+    border-radius: 5px;
+
+    transition: all 0.35s ease;
+    transform-origin: center;
+}
+
+/* FIRST LINE */
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    background-color: #000;
+}
+
+/* MIDDLE LINE */
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+/* LAST LINE */
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+    background-color: #000;
+}
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -142,6 +236,12 @@
 ===================================== */
 
 @media (max-width: 768px) {
+    .menu-toggle.active {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    z-index: 3000;
+}
 
     .custom-navbar {
         min-height: 65px;
