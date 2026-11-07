@@ -36,6 +36,15 @@ const Navbar = () => {
       {/* NAVIGATION LINKS */}
       <div className={`navbar-end navbar-links ${menuOpen ? 'active' : ''}`}>
 
+        {/* CLOSE BUTTON - MOBILE ONLY */}
+        <button
+          className="mobile-close-btn"
+          onClick={closeMenu}
+          aria-label="Close navigation menu"
+        >
+          &times;
+        </button>
+
         <Link to="/" className="nav-link" onClick={closeMenu}>
           Home
         </Link>
@@ -55,12 +64,6 @@ const Navbar = () => {
         <Link to="/contact" className="nav-link" onClick={closeMenu}>
           Contact
         </Link>
-
-        {/* <input
-          type="text"
-          placeholder="Search"
-          className="input"
-        /> */}
 
       </div>
 

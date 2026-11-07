@@ -150,6 +150,15 @@ img {
     transform: translateY(0);
   }
 }
+@media (prefers-reduced-motion: reduce) {
+  .hero-content h1,
+  .hero-content p,
+  .hero-buttons {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
 
 .btn-primary {
   background: #7030a0;

@@ -42,7 +42,7 @@
 }
 
 /* =====================================
-   NAVIGATION LINKS
+   NAVIGATION LINKS - DESKTOP
 ===================================== */
 
 .navbar-links {
@@ -131,8 +131,14 @@
     transition: 0.3s ease;
 }
 
+/* CLOSE BUTTON - DESKTOP HIDDEN */
+
+.mobile-close-btn {
+    display: none;
+}
+
 /* =====================================
-   TABLET AND MOBILE RESPONSIVE
+   TABLET AND MOBILE
 ===================================== */
 
 @media (max-width: 768px) {
@@ -148,56 +154,110 @@
     }
 
     /* SHOW HAMBURGER */
+
     .menu-toggle {
         display: flex;
     }
 
-    /* MOBILE DROPDOWN MENU */
-    .navbar-links {
-        display: none;
-        
+    /* FULL SCREEN MOBILE MENU */
 
-        position: absolute;
-        top: 65px;
-        left: 0;
+    .navbar-links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        position: fixed;
+        inset: 0;
 
         width: 100%;
-        padding: 20px;
+        height: 100vh;
+        height: 100dvh;
 
         box-sizing: border-box;
+        padding: 0 9%;
 
-         /* Background with 85% opacity */
-    background-color: rgba(1, 0, 11, 0.5);
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.02);
+        background-color: #ffffff;
 
-        flex-direction: column;
-        
-        gap: 10px;
+        z-index: 2000;
+
+        gap: 35px;
+
+        /* Hidden by default */
+        transform: translateX(100%);
+        visibility: hidden;
+        pointer-events: none;
+
+        transition:
+            transform 0.35s ease,
+            visibility 0.35s ease;
     }
 
-    /* SHOW MENU WHEN CLICKED */
+    /* SHOW FULL SCREEN MENU */
+
     .navbar-links.active {
-        display: flex;
+        transform: translateX(0);
+        visibility: visible;
+        pointer-events: auto;
     }
+
+    /* X CLOSE BUTTON */
+
+    .mobile-close-btn {
+        display: block;
+
+        position: absolute;
+        top: 35px;
+        right: 30px;
+
+        font-size: 45px;
+        font-weight: 300;
+        line-height: 1;
+
+        color: #000000;
+        background: transparent;
+        border: none;
+
+        cursor: pointer;
+    }
+
+    /* VERTICAL NAVIGATION LINKS */
 
     .nav-link {
         width: 100%;
         box-sizing: border-box;
-        text-align: start;
-        padding: 12px;
-        font-size: 14px;
-        color: #ffffff;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+        text-align: left;
+
+        padding: 0;
+        font-size: 28px;
+        font-weight: 600;
+
+        color: #111111;
+
+        font-family: 'DM Sans', sans-serif;
+
+        background: transparent;
+        border-radius: 0;
+    }
+
+    .nav-link:hover {
+        color: #7030A0;
+        background: transparent;
+    }
+
+    /* FIRST LINK POSITION */
+
+    .nav-link:first-of-type {
+        margin-top: 130px;
     }
 
     /* MOBILE SEARCH */
+
     .navbar-links .input {
         width: 100%;
         height: 40px;
         box-sizing: border-box;
-        color: #f3cc09;
     }
-
 }
 
 /* =====================================
@@ -220,4 +280,17 @@
         height: 38px;
     }
 
+    .navbar-links {
+        padding: 0 9%;
+        gap: 32px;
+    }
+
+    .nav-link {
+        font-size: 26px;
+    }
+
+    .mobile-close-btn {
+        top: 25px;
+        right: 25px;
+    }
 }
