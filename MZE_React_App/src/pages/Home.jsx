@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import "../css/Home.css";
 
-import heroBg from "../assets/Hero section Bg.png";
+import heroBg from "../assets/photopea.webp";
 
 // Import promotional images
 import christmasPromo from "../assets/christmas.png";

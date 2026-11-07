@@ -36,6 +36,7 @@ body {
 img {
   display: block;
   max-width: 100%;
+  
 }
 
 /* =====================================
@@ -44,7 +45,7 @@ img {
 
 .hero {
   width: 100%;
-  min-height: clamp(320px, 35vw, 500px);
+  min-height: 600px;
 
   display: flex;
   align-items: center;
@@ -56,14 +57,17 @@ img {
 }
 
 .hero-content {
-  position: relative;
-  z-index: 2;
+  /* position: relative;
+  z-index: 2; */
 
-  width: min(100%, 1100px);
+  /* width: min(100%, 1100px);
   min-width: 0;
-  padding: clamp(16px, 3vw, 40px);
+  padding: clamp(16px, 3vw, 40px); */
+/* 
+  
 
   color: #fff;
+  text-align: center; */
   text-align: center;
 }
 
@@ -78,9 +82,11 @@ img {
   margin: 0 0 20px;
   
 
-  font-family: 'Caveat', cursive;
+  /* font-family: 'Caveat', cursive; */
   font-size: clamp(45px, 3vw, 43px);
-  color: #f3cc09;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+ 
+  color: #fff;
   font-weight: bold;
   line-height: 1.2;
   overflow-wrap: break-word;
@@ -112,7 +118,7 @@ img {
   justify-content: center;
 
   padding: 12px clamp(18px, 2.5vw, 35px);
-  border-radius: 10px;
+  border-radius: 2px;
 
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: clamp(10px, 1vw, 12px);
@@ -214,7 +220,7 @@ img {
   background: #7030a0;
   color: #f3cc09;
 
-  border-radius: 20px;
+  border-radius: 2px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 12px;
   font-weight: bold;
@@ -954,8 +960,8 @@ img {
 
 .promo-carousel {
 position: relative;
-  width: 100%;
-  max-width: 1500px;
+  width: 80%;
+  max-width: 1200px;
   aspect-ratio: 16 / 9;
 
   /* Increase slide size */
@@ -1144,7 +1150,7 @@ position: relative;
 
   .promo-carousel {
     width: 100%;
-    min-height: 200px;
+    min-height: 220px;
     aspect-ratio: 16 / 9;
     border-radius: 12px;
   }
