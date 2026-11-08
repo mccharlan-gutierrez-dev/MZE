@@ -195,8 +195,31 @@ const Home = () => {
 // =====================================
 
 const WhyChoose = () => {
+   const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.2,
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
   return (
-    <section className="why-choose">
+    <section ref={sectionRef} 
+    className={`why-choose ${isVisible ? "is-visible" : " "}`}>
       <div className="why-container">
         <div className="why-content">
           <span className="why-label">WHY CHOOSE MZE?</span>

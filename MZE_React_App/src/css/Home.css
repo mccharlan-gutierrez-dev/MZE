@@ -330,6 +330,61 @@ img {
 }
 
 /* =====================================
+   WHY CHOOSE SCROLL ANIMATION
+===================================== */
+
+/* Initial state */
+.why-content,
+.why-features {
+  opacity: 0;
+}
+
+/* Content slides from left to right */
+.why-choose.is-visible .why-content {
+  animation: slideInRight 1s ease-out forwards;
+}
+
+/* Features slide from right to left */
+.why-choose.is-visible .why-features {
+  animation: slideInLeft 1s ease-out 0.2s forwards;
+}
+
+/* Animation Keyframes */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .why-content,
+  .why-features {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* =====================================
    SERVICES SECTION
 ===================================== */
 
