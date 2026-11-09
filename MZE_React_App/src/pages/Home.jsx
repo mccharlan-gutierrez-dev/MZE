@@ -306,7 +306,7 @@ const PawnServices = () => {
         <div className="services-heading">
           <span className="section-label">OUR SERVICES</span>
 
-          <h2>What We Pawn & Sell</h2>
+          <h2>We Pawn & Sell</h2>
 
           <p>
             We accept a wide range of gadgets and electronic devices.

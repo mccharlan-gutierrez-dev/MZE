@@ -68,9 +68,16 @@ const Navbar = () => {
           About
         </Link>
 
-        <Link to="/services" className="nav-link" onClick={closeMenu}>
-          Services
-        </Link>
+        <Link to="/career" className="nav-link" onClick={closeMenu}>
+  Career
+</Link>
+        
+        
+
+         {/* <a href="#pawn" className="btn-primary">
+        Pawn Now
+        <span className="arrow">→</span>
+      </a> */}
 
         <Link to="/branches" className="nav-link" onClick={closeMenu}>
           Branches

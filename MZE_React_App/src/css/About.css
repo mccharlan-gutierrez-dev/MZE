@@ -940,3 +940,314 @@
     animation-duration: 0.01ms !important;
   }
 }
+
+/* =====================================
+   MZE SHOP SERVICES SECTION
+===================================== */
+
+.shop-services-section {
+  width: 100%;
+  padding: 65px 5%;
+  background: linear-gradient(
+    120deg,
+    #ffffff 0%,
+    #faf8ff 55%,
+    #f5f0ff 100%
+  );
+}
+
+.shop-services-container {
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+/* SECTION HEADER */
+
+.shop-services-header {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 38px;
+}
+
+.shop-section-label {
+  display: inline-block;
+  color: #7030a0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+}
+
+.shop-services-header h2 {
+  color: #190b80;
+  font-size: clamp(27px, 3.5vw, 38px);
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0 0 12px;
+}
+
+.shop-services-header h2 span {
+  color: #7030a0;
+}
+
+.shop-intro {
+  color: #514879;
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0 auto;
+  max-width: 650px;
+}
+
+/* SERVICES GRID */
+
+.shop-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+/* SERVICE CARD */
+
+.shop-service-card {
+  position: relative;
+  min-width: 0;
+  min-height: 255px;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding: 28px 25px;
+  overflow: hidden;
+
+  background: #ffffff;
+  border: 1px solid #e9ddff;
+  border-radius: 16px;
+
+  box-shadow: 0 5px 15px rgba(112, 48, 160, 0.07);
+
+  transition: all 0.3s ease;
+}
+
+.shop-service-card:hover {
+  transform: translateY(-6px);
+  border-color: #cdb0f5;
+  box-shadow: 0 12px 25px rgba(112, 48, 160, 0.13);
+}
+
+/* SERVICE ICON */
+
+.shop-service-icon {
+  width: 62px;
+  height: 62px;
+  flex-shrink: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #f0e7ff;
+  border-radius: 18px;
+
+  margin-bottom: 20px;
+}
+
+.shop-service-icon svg {
+  width: 34px;
+  height: 34px;
+
+  fill: none;
+  stroke: #7030a0;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* SERVICE TEXT */
+
+.shop-service-card h3 {
+  color: #190b80;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.4;
+
+  margin: 0 0 12px;
+}
+
+.shop-service-card p {
+  color: #514879;
+  font-size: 13px;
+  line-height: 1.7;
+
+  margin: 0;
+}
+
+/* BOTTOM DECORATIVE LINE */
+
+.shop-service-line {
+  width: 45px;
+  height: 3px;
+
+  background: #7030a0;
+  border-radius: 5px;
+
+  margin-top: auto;
+  padding-top: 0;
+  transform: translateY(12px);
+
+  transition: width 0.3s ease;
+}
+
+.shop-service-card:hover .shop-service-line {
+  width: 80px;
+}
+
+/* =====================================
+   TABLET RESPONSIVE
+===================================== */
+
+@media (max-width: 900px) {
+  .shop-services-section {
+    padding: 50px 4%;
+  }
+
+  .shop-services-grid {
+    gap: 15px;
+  }
+
+  .shop-service-card {
+    padding: 22px 18px;
+    min-height: 260px;
+  }
+
+  .shop-service-card h3 {
+    font-size: 15px;
+  }
+
+  .shop-service-card p {
+    font-size: 12px;
+  }
+}
+
+/* =====================================
+   MOBILE RESPONSIVE
+===================================== */
+
+@media (max-width: 600px) {
+  .shop-services-section {
+    padding: 42px 18px;
+  }
+
+  .shop-services-header {
+    margin-bottom: 28px;
+  }
+
+  .shop-section-label {
+    font-size: 9px;
+  }
+
+  .shop-services-header h2 {
+    font-size: 26px;
+  }
+
+  .shop-intro {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .shop-services-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .shop-service-card {
+    min-height: 0;
+    padding: 22px;
+  }
+
+  .shop-service-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+  }
+
+  .shop-service-icon svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .shop-service-card h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .shop-service-card p {
+    font-size: 12px;
+  }
+
+  .shop-service-line {
+    margin-top: 18px;
+    transform: none;
+  }
+}
+
+/* =====================================
+   SMALL MOBILE
+===================================== */
+
+@media (max-width: 360px) {
+  .shop-services-header h2 {
+    font-size: 23px;
+  }
+
+  .shop-service-card {
+    padding: 19px;
+  }
+
+  .shop-service-card h3 {
+    font-size: 15px;
+  }
+}
+/* new code */
+/* ABOUT HERO CONTENT ANIMATION */
+
+.hero-title-animate,
+.hero-description-animate {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* Animate H1 first */
+.about-hero.is-visible .hero-title-animate {
+  animation: heroSlideUp 0.8s ease-out 0.2s forwards;
+}
+
+/* Animate paragraph after H1 */
+.about-hero.is-visible .hero-description-animate {
+  animation: heroSlideUp 0.8s ease-out 0.6s forwards;
+}
+
+@keyframes heroSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .hero-title-animate,
+  .hero-description-animate {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}

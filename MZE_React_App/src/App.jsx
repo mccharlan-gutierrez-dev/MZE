@@ -4,9 +4,10 @@ import Navbar from './components/Navbar'
 
 import Home from './pages/Home'
 import About from './pages/About'
-import Services from './pages/Services'
+
 import Branches from './pages/Branches'
 import Contact from './pages/Contact'
+import Career from './pages/Career'
 
 
 
@@ -21,7 +22,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Home/>} />
       <Route path="/about" element={<About/>} />
-      <Route path="/services" element={<Services/>} />
+      <Route path="/career" element={<Career/>} />
       <Route path="/branches" element={<Branches/>} />
       <Route path="/contact" element={<Contact/>} />
       

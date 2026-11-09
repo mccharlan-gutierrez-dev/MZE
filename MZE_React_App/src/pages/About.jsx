@@ -1,5 +1,6 @@
 
-import React, { useRef } from "react";
+
+import React, { useRef, useEffect, useState } from "react";
 import "../css/About.css";
 
 // =====================================
@@ -142,35 +143,116 @@ const testimonials = [
   },
 ];
 
+const shopServices = [
+  {
+    title: "Gadget Sales with Buy-Back Options",
+    description:
+      "We buy pre-loved gadgets and give the original owner the opportunity to buy them back.",
+    icon: (
+      <svg viewBox="0 0 24 24">
+        <rect x="6" y="2" width="12" height="20" rx="2" />
+        <path d="M10 18h4" />
+        <path d="M9 7h6" />
+        <path d="M9 11h6" />
+      </svg>
+    ),
+  },
+  {
+    title: "Straight Sales of Gadgets",
+    description:
+      "When the original owner cannot buy their gadget back, we sell it to others.",
+    icon: (
+      <svg viewBox="0 0 24 24">
+        <path d="M3 9l2-5h14l2 5" />
+        <path d="M4 9v11h16V9" />
+        <path d="M3 9h18" />
+        <path d="M9 20v-6h6v6" />
+        <path d="M8 4V2h8v2" />
+      </svg>
+    ),
+  },
+  {
+    title: "Bills Payments",
+    description:
+      "Conveniently pay your bills with us. Enjoy an easy and hassle-free payment experience.",
+    icon: (
+      <svg viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="M3 10h18" />
+        <path d="M7 15h4" />
+        <path d="M16 15h1" />
+      </svg>
+    ),
+  },
+];
+
+
+const useScrollAnimation = () => {
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(section);
+        }
+      },
+      {
+        threshold: 0.15,
+      }
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return { sectionRef, isVisible };
+};
+
+
 // =====================================
 // MAIN ABOUT COMPONENT
 // =====================================
 
 const About = () => {
+  const { sectionRef, isVisible } = useScrollAnimation();
+  
   return (
     <main className="about-page">
 
       {/* ABOUT HERO SECTION */}
-      <section className="about-hero">
-        <div className="about-hero-content">
+      {/* ABOUT HERO SECTION */}
+<section
+  className={`about-hero ${isVisible ? "is-visible" : ""}`}
+  ref={sectionRef}
+>
+  <div className="about-hero-content">
 
-          <h1 className="force-heading">
-            A Force <span>For Good</span>
-          </h1>
+    <h1 className="force-heading hero-title-animate">
+      A Force <span>For Good</span>
+    </h1>
 
-          <p>
-            As a proud member of the Eguia Group of Companies (EGC),
-            we share a story of hope and perseverance. From a small
-            medical distribution company that survived changing market
-            forces, EGC branched out into finance and wellness,
-            becoming an example that dreams do come true.
-            MZE Cellular carries this legacy forward, serving
-            thousands of happy customers through our well-trained
-            sales and service providers.
-          </p>
+    <p className="hero-description-animate">
+      As a proud member of the Eguia Group of Companies (EGC),
+      we share a story of hope and perseverance. From a small
+      medical distribution company that survived changing market
+      forces, EGC branched out into finance and wellness,
+      becoming an example that dreams do come true.
+      MZE Cellular carries this legacy forward, serving
+      thousands of happy customers through our well-trained
+      sales and service providers.
+    </p>
 
-        </div>
-      </section>
+  </div>
+</section>
+
+      <ShopServices/>
 
       {/* MISSION AND VISION */}
       <MissionVision />
@@ -185,13 +267,67 @@ const About = () => {
   );
 };
 
+const ShopServices = () => {
+   const { sectionRef, isVisible } = useScrollAnimation();
+  return (
+    <section
+      className={`shop-services-section ${isVisible ? "is-visible" : ""}`}
+      ref={sectionRef}
+    >
+      <div className="shop-services-container">
+
+        {/* SECTION HEADER */}
+        <div className="shop-services-header">
+          <span className="shop-section-label">
+            MZE CELLULAR PHONE & GADGET SHOP
+          </span>
+
+          <h2>
+            More Than Just a <span>Gadget Shop</span>
+          </h2>
+
+          <p className="shop-intro">
+            A trading company specializing in pre-owned gadgets
+            with a unique buy-back option for our customers.
+          </p>
+        </div>
+
+        {/* SERVICES */}
+        <div className="shop-services-grid">
+          {shopServices.map((service) => (
+            <article
+              className="shop-service-card"
+              key={service.title}
+            >
+              <div className="shop-service-icon">
+                {service.icon}
+              </div>
+
+              <h3>{service.title}</h3>
+
+              <p>{service.description}</p>
+
+              <div className="shop-service-line"></div>
+            </article>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
 // =====================================
 // MISSION AND VISION COMPONENT
 // =====================================
 
 const MissionVision = () => {
+   const { sectionRef, isVisible } = useScrollAnimation();
   return (
-    <section className="mission-vision-section">
+     <section
+      className={`mission-vision-section ${isVisible ? "is-visible" : ""}`}
+      ref={sectionRef}
+    >
       <div className="mission-vision-container">
 
         {/* MISSION CARD */}
@@ -266,8 +402,12 @@ const MissionVision = () => {
 // =====================================
 
 const CoreValues = () => {
+  const { sectionRef, isVisible } = useScrollAnimation();
   return (
-    <section className="core-values-section">
+    <section
+      className={`core-values-section ${isVisible ? "is-visible" : ""}`}
+      ref={sectionRef}
+    >
       <div className="core-values-container">
 
         {/* HEADER */}
@@ -320,6 +460,7 @@ const CoreValues = () => {
 
 const Testimonials = () => {
   const sliderRef = useRef(null);
+  const { sectionRef, isVisible } = useScrollAnimation();
 
   // Scroll one card at a time
   const scroll = (direction) => {
@@ -346,7 +487,10 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="testimonials-section">
+     <section
+      className={`testimonials-section ${isVisible ? "is-visible" : ""}`}
+      ref={sectionRef}
+    >
       <div className="testimonials-container">
 
         {/* HEADER */}

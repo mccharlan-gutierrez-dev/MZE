@@ -1,0 +1,210 @@
+/* ================================
+   COMPANY VALUES SECTION
+================================ */
+
+.company-values {
+  width: 100%;
+  padding: 45px 5%;
+  background: #ffffff;
+  font-family: Verdana, sans-serif;
+}
+
+.values-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ================================
+   HEADING
+================================ */
+
+.values-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.values-heading h2 {
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 800;
+  color: #24105f;
+  margin: 0 0 8px;
+  letter-spacing: -1px;
+}
+
+.values-heading h2 span {
+  color: #f3cc09;
+}
+
+.values-heading p {
+  color: #24105f;
+  max-width: 850px;
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ================================
+   VALUE CARDS
+================================ */
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.value-card {
+  position: relative;
+  min-height: 190px;
+  padding: 0 25px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  background: linear-gradient(
+    145deg,
+    #ffffff,
+    #faf7ff
+  );
+
+  border: 2px solid #eadcff;
+  border-radius: 22px;
+
+  box-shadow: 0 5px 12px rgba(112, 48, 160, 0.16);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 10px 22px rgba(112, 48, 160, 0.22);
+}
+
+/* ================================
+   ICON
+================================ */
+
+.value-icon {
+  width: 68px;
+  height: 68px;
+  margin-top: -1px;
+  margin-bottom: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    135deg,
+    #8b35d1,
+    #5410a5
+  );
+
+  border-radius: 50%;
+
+  color: #ffffff;
+
+  box-shadow: 0 5px 12px rgba(112, 48, 160, 0.25);
+}
+
+.value-icon svg {
+  width: 37px;
+  height: 37px;
+}
+
+/* ================================
+   CARD TEXT
+================================ */
+
+.value-card h3 {
+  color: #24105f;
+  font-size: 16px;
+  font-weight: 800;
+  margin: 0 0 8px;
+}
+
+.value-card p {
+  color: #24105f;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 300px;
+}
+
+/* ================================
+   TABLET
+================================ */
+
+@media (max-width: 768px) {
+  .company-values {
+    padding: 40px 4%;
+  }
+
+  .values-grid {
+    gap: 15px;
+  }
+
+  .value-card {
+    padding: 0 12px 20px;
+    min-height: 205px;
+  }
+
+  .value-card h3 {
+    font-size: 14px;
+  }
+
+  .value-card p {
+    font-size: 12px;
+  }
+
+  .values-heading p {
+    font-size: 12px;
+  }
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+  .company-values {
+    padding: 40px 6%;
+  }
+
+  .values-heading {
+    margin-bottom: 30px;
+  }
+
+  .values-heading h2 {
+    font-size: 27px;
+  }
+
+  .values-heading p {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .values-heading p br {
+    display: none;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .value-card {
+    min-height: 175px;
+    padding: 0 25px 22px;
+  }
+
+  .value-card h3 {
+    font-size: 16px;
+  }
+
+  .value-card p {
+    font-size: 13px;
+    max-width: 320px;
+  }
+}
