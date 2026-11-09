@@ -5,8 +5,8 @@ import heroBg from "../assets/photopea.webp";
 
 // Import promotional images
 import christmasPromo from "../assets/banner.webp";
-import newYearPromo from "../assets/banner.webp";
-import summerPromo from "../assets/banner.webp";
+import newYearPromo from "../assets/banner2.webp";
+import summerPromo from "../assets/banner3.webp";
 
 // =====================================
 // WHY CHOOSE MZE FEATURES
