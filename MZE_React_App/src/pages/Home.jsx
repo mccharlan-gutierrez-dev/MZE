@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from "react";
+import { Link } from "react-router";
 import "../css/Home.css";
 
 import heroBg from "../assets/photopea.webp";
@@ -178,10 +179,14 @@ const Home = () => {
     </p>
 
     <div className="hero-buttons">
-      <a href="#pawnshop" className="btn-primary">
+      {/* <a href="#pawn" className="btn-primary">
         Pawn Now
         <span className="arrow">→</span>
-      </a>
+      </a> */}
+      <Link to="/branches" className="btn-primary">
+        Pawn Now 
+        <span className="arrow">→</span>
+       </Link>
 
       <a href="#products" className="btn-secondary">
         Explore Our Products
@@ -256,9 +261,11 @@ const WhyChoose = () => {
             solutions.
           </p>
 
-          <a href="#about" className="why-button">
+          
+          <Link to="/about" className="why-button">
             Learn More <span>→</span>
-          </a>
+          </Link>
+
         </div>
 
         <div className="why-features">
@@ -354,7 +361,7 @@ const PawnServices = () => {
 
 const HowItWorks = () => {
   return(
-     <section className="how-it-works">
+     <section className="how-it-works" id="pawn">
 
       <div className="process-header">
         <span className="section-label">HOW IT WORKS</span>
