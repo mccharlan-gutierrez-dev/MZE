@@ -137,43 +137,67 @@ const Home = () => {
     <div className="body">
       {/* HERO SECTION */}
 
-      <section
-        className="hero"
-        style={{
-          backgroundImage: `
-            linear-gradient(
-              rgba(0, 0, 0, 0.1),
-              rgba(0, 0, 0, 0)
-            ),
-            url(${heroBg})
-          `,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          
-        }}
-      >
-        <div className="hero-content">
-          <div className="hero-text">
-            <h1>Gawin Budget Ang Inyong Gadget</h1>
+    
+{/* HERO SECTION */}
 
-            <p>
-              MZE Pawnshop & Trading offers fast and hassle-free pawnshop,
-              buying, and selling services. Get the best value for your items
-              with secure and professional service.
-            </p>
+<section
+  className="hero-section"
+  style={{
+    backgroundImage: `
+      linear-gradient(
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0)
+      ),
+      url(${heroBg})
+    `,
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+>
+  {/* LEFT SIDE CONTENT */}
 
-            <div className="hero-buttons">
-              <a href="#pawnshop" className="btn-primary">
-                Pawn Now <span className="arrow">→</span>
-              </a>
+  <div className="hero-content">
+    <div className="hero-badge">
+      <span>FAST</span>
+      <span>•</span>
+      <span>SAFE</span>
+      <span>•</span>
+      <span>TRUSTED</span>
+    </div>
 
-              <a href="#products" className="btn-secondary">
-                Our Products
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+    <h1>
+      Gawin Budget,
+      <br />
+      <span>Ang Inyong Gadget</span>
+    </h1>
+
+    <p className="hero-description">
+      MZE Pawnshop & Trading offers fast and hassle-free
+      pawnshop, buying, and selling services. Get the best
+      value for your items with secure and professional service.
+    </p>
+
+    <div className="hero-buttons">
+      <a href="#pawnshop" className="btn-primary">
+        Pawn Now
+        <span className="arrow">→</span>
+      </a>
+
+      <a href="#products" className="btn-secondary">
+        Explore Our Products
+      </a>
+    </div>
+  </div>
+
+  {/* RIGHT SIDE HANDWRITTEN TEXT */}
+
+  <div className="hero-tagline">
+    <span>More</span>
+    <span>Than Just</span>
+    <span>Pawnshop.</span>
+  </div>
+</section>
+
 
       {/* WHY CHOOSE MZE */}
 
