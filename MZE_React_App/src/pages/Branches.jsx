@@ -1,5 +1,6 @@
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+
 import {
   MapContainer,
   TileLayer,
@@ -22,8 +23,6 @@ const branches = [
     address: "15K-5th Street, Brgy. Kamuning, Quezon City",
     contact: "0942 390 1800",
     hours: "Monday–Saturday: 8:00 AM – 5:45 PM",
-
-    // IMPORTANT: Replace with verified branch coordinates
     lat: 14.6263349,
     lng: 121.0373555,
   },
@@ -35,8 +34,6 @@ const branches = [
     contact: "0932-406-9768",
     hours: "Monday–Saturday: 8:00 AM – 4:45 PM",
     closed: "Sunday & Holidays: Closed",
-
-    // IMPORTANT: Replace with verified branch coordinates
     lat: 14.4854,
     lng: 121.0456,
   },
@@ -58,9 +55,13 @@ const getDistance = (lat1, lon1, lat2, lon2) => {
       Math.cos((lat2 * Math.PI) / 180) *
       Math.sin(dLon / 2) ** 2;
 
-  return R * 2 * Math.atan2(
-    Math.sqrt(a),
-    Math.sqrt(1 - a)
+  return (
+    R *
+    2 *
+    Math.atan2(
+      Math.sqrt(a),
+      Math.sqrt(1 - a)
+    )
   );
 };
 
@@ -71,7 +72,11 @@ const getDistance = (lat1, lon1, lat2, lon2) => {
 const MapUpdater = ({ center }) => {
   const map = useMap();
 
-  map.setView(center, 15);
+  useEffect(() => {
+    if (center && center.length === 2) {
+      map.setView(center, 15);
+    }
+  }, [map, center]);
 
   return null;
 };
@@ -81,8 +86,6 @@ const MapUpdater = ({ center }) => {
 // =====================================
 
 const openGoogleMaps = (branch) => {
-
-  // Use exact geographic coordinates instead of address text
   const destination = `${branch.lat},${branch.lng}`;
 
   const url =
@@ -98,10 +101,12 @@ const openGoogleMaps = (branch) => {
 // =====================================
 
 const Branches = () => {
-
   const [search, setSearch] = useState("");
+
   const [userLocation, setUserLocation] = useState(null);
+
   const [loading, setLoading] = useState(false);
+
   const [error, setError] = useState("");
 
   const [mapCenter, setMapCenter] = useState([
@@ -116,12 +121,14 @@ const Branches = () => {
   // =====================================
 
   const sortedBranches = useMemo(() => {
-
-    if (!userLocation) return branches;
+    if (!userLocation) {
+      return branches;
+    }
 
     return branches
       .map((branch) => ({
         ...branch,
+
         distance: getDistance(
           userLocation.lat,
           userLocation.lng,
@@ -138,7 +145,6 @@ const Branches = () => {
   // =====================================
 
   const searchAddress = async (e) => {
-
     e.preventDefault();
 
     if (!search.trim()) {
@@ -147,7 +153,6 @@ const Branches = () => {
     }
 
     try {
-
       setLoading(true);
       setError("");
 
@@ -165,6 +170,7 @@ const Branches = () => {
         setError(
           "Address not found. Please try another address."
         );
+
         return;
       }
 
@@ -182,8 +188,9 @@ const Branches = () => {
 
       setSelectedBranch(null);
 
-    } catch (err) {
+      setError("");
 
+    } catch (err) {
       console.error("Address search error:", err);
 
       setError(
@@ -191,9 +198,7 @@ const Branches = () => {
       );
 
     } finally {
-
       setLoading(false);
-
     }
   };
 
@@ -201,93 +206,125 @@ const Branches = () => {
   // USE CURRENT LOCATION
   // =====================================
 
- 
-const useCurrentLocation = () => {
-  if (!navigator.geolocation) {
-    setError("Your browser does not support location services.");
-    return;
-  }
+  const useCurrentLocation = () => {
+    // Check browser geolocation support
 
-  setLoading(true);
-  setError("");
+    if (!navigator.geolocation) {
+      setError(
+        "Your browser does not support location services."
+      );
 
-  navigator.geolocation.getCurrentPosition(
-    (position) => {
-      const location = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-      };
-
-      // Update user location
-      setUserLocation(location);
-
-      // Center map on detected location
-      setMapCenter([
-        location.lat,
-        location.lng,
-      ]);
-
-      setSelectedBranch(null);
-
-      // Clear previous errors
-      setError("");
-
-      setLoading(false);
-    },
-
-    (err) => {
-      console.error("Geolocation error:", err);
-
-      switch (err.code) {
-        case 1:
-          setError(
-            "Location permission denied. Please allow location access."
-          );
-          break;
-
-        case 2:
-          setError(
-            "Unable to determine your location. Please check your GPS."
-          );
-          break;
-
-        case 3:
-          setError(
-            "Location request timed out. Please try again."
-          );
-          break;
-
-        default:
-          setError(
-            "Unable to detect your location. Please try again."
-          );
-      }
-
-      setLoading(false);
-    },
-
-    {
-      enableHighAccuracy: false,
-      timeout: 30000,
-      maximumAge: 60000,
+      return;
     }
-  );
-};
 
+    // Check HTTPS / secure context
+
+    if (!window.isSecureContext) {
+      setError(
+        "Location services require a secure HTTPS connection."
+      );
+
+      return;
+    }
+
+    // Start loading
+
+    setLoading(true);
+    setError("");
+
+    // Clear previous location to avoid outdated status
+
+    setUserLocation(null);
+    setSelectedBranch(null);
+
+    // Request device location
+
+    navigator.geolocation.getCurrentPosition(
+
+      // SUCCESS CALLBACK
+
+      (position) => {
+        const location = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
+
+        console.log("Location detected:", location);
+
+        // Save user location
+
+        setUserLocation(location);
+
+        // Update map center
+
+        setMapCenter([
+          location.lat,
+          location.lng,
+        ]);
+
+        // Clear error
+
+        setError("");
+
+        // Stop loading
+
+        setLoading(false);
+      },
+
+      // ERROR CALLBACK
+
+      (err) => {
+        console.error("Geolocation error:", err);
+
+        switch (err.code) {
+          case 1:
+            setError(
+              "Location permission denied. Please allow location access in your browser settings."
+            );
+            break;
+
+          case 2:
+            setError(
+              "Your location is currently unavailable. Please check your GPS."
+            );
+            break;
+
+          case 3:
+            setError(
+              "Location request timed out. Please try again."
+            );
+            break;
+
+          default:
+            setError(
+              "Unable to detect your location. Please try again."
+            );
+        }
+
+        setLoading(false);
+      },
+
+      // LOCATION OPTIONS
+
+      {
+        enableHighAccuracy: false,
+        timeout: 60000,
+        maximumAge: 300000,
+      }
+    );
+  };
 
   // =====================================
   // SELECT BRANCH
   // =====================================
 
   const selectBranch = (branch) => {
-
     setSelectedBranch(branch);
 
     setMapCenter([
       branch.lat,
       branch.lng,
     ]);
-
   };
 
   // =====================================
@@ -295,9 +332,7 @@ const useCurrentLocation = () => {
   // =====================================
 
   const getDirections = (branch) => {
-
     openGoogleMaps(branch);
-
   };
 
   // =====================================
@@ -359,6 +394,7 @@ const useCurrentLocation = () => {
           {/* CURRENT LOCATION */}
 
           <button
+            type="button"
             className="current-location"
             onClick={useCurrentLocation}
             disabled={loading}
@@ -382,7 +418,7 @@ const useCurrentLocation = () => {
 
           {/* LOCATION STATUS */}
 
-          {userLocation && (
+          {userLocation && !error && (
             <div className="location-status">
 
               <span>✓</span>
@@ -507,6 +543,7 @@ const useCurrentLocation = () => {
                 {/* VIEW ON MAP */}
 
                 <button
+                  type="button"
                   className="view-map-btn"
                   onClick={(e) => {
                     e.stopPropagation();
@@ -519,6 +556,7 @@ const useCurrentLocation = () => {
                 {/* GET DIRECTIONS */}
 
                 <button
+                  type="button"
                   className="view-map-btn"
                   onClick={(e) => {
                     e.stopPropagation();
@@ -595,6 +633,7 @@ const useCurrentLocation = () => {
                   <br />
 
                   <button
+                    type="button"
                     onClick={() => openGoogleMaps(branch)}
                   >
                     Get Directions
