@@ -201,81 +201,79 @@ const Branches = () => {
   // USE CURRENT LOCATION
   // =====================================
 
-  const useCurrentLocation = () => {
-
-    setError("");
-
-    if (!navigator.geolocation) {
-
-      setError(
-        "Your browser does not support location services."
-      );
-
-      return;
-    }
-
-    setLoading(true);
-
-    navigator.geolocation.getCurrentPosition(
-
-      (position) => {
-
-        const location = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
-        };
-
-        setUserLocation(location);
-
-        setMapCenter([
-          location.lat,
-          location.lng,
-        ]);
-
-        setSelectedBranch(null);
-
-        setLoading(false);
-
-      },
-
-     (err) => {
-  console.error("Geolocation error:", err);
-
-  let errorMessage = "";
-
-  switch (err.code) {
-    case 1:
-      errorMessage =
-        "Location permission denied. Please allow location access in your browser settings.";
-      break;
-
-    case 2:
-      errorMessage =
-        "Your location is currently unavailable. Please check your GPS.";
-      break;
-
-    case 3:
-      errorMessage =
-        "Location request timed out. Please try again.";
-      break;
-
-    default:
-      errorMessage =
-        "Unable to detect your location. Please try again.";
+ 
+const useCurrentLocation = () => {
+  if (!navigator.geolocation) {
+    setError("Your browser does not support location services.");
+    return;
   }
 
-  setError(errorMessage);
-  setLoading(false);
-},
+  setLoading(true);
+  setError("");
 
-      {
-  enableHighAccuracy: true,
-  timeout: 20000,
-  maximumAge: 0,
-}
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      const location = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      };
 
-    );
-  };
+      // Update user location
+      setUserLocation(location);
+
+      // Center map on detected location
+      setMapCenter([
+        location.lat,
+        location.lng,
+      ]);
+
+      setSelectedBranch(null);
+
+      // Clear previous errors
+      setError("");
+
+      setLoading(false);
+    },
+
+    (err) => {
+      console.error("Geolocation error:", err);
+
+      switch (err.code) {
+        case 1:
+          setError(
+            "Location permission denied. Please allow location access."
+          );
+          break;
+
+        case 2:
+          setError(
+            "Unable to determine your location. Please check your GPS."
+          );
+          break;
+
+        case 3:
+          setError(
+            "Location request timed out. Please try again."
+          );
+          break;
+
+        default:
+          setError(
+            "Unable to detect your location. Please try again."
+          );
+      }
+
+      setLoading(false);
+    },
+
+    {
+      enableHighAccuracy: false,
+      timeout: 30000,
+      maximumAge: 60000,
+    }
+  );
+};
+
 
   // =====================================
   // SELECT BRANCH
