@@ -238,22 +238,41 @@ const Branches = () => {
 
       },
 
-      (err) => {
+     (err) => {
+  console.error("Geolocation error:", err);
 
-        console.error("Geolocation error:", err);
+  let errorMessage = "";
 
-        setError(
-          "Unable to access your location. Please allow location permission."
-        );
+  switch (err.code) {
+    case 1:
+      errorMessage =
+        "Location permission denied. Please allow location access in your browser settings.";
+      break;
 
-        setLoading(false);
+    case 2:
+      errorMessage =
+        "Your location is currently unavailable. Please check your GPS.";
+      break;
 
-      },
+    case 3:
+      errorMessage =
+        "Location request timed out. Please try again.";
+      break;
+
+    default:
+      errorMessage =
+        "Unable to detect your location. Please try again.";
+  }
+
+  setError(errorMessage);
+  setLoading(false);
+},
 
       {
-        enableHighAccuracy: true,
-        timeout: 10000,
-      }
+  enableHighAccuracy: true,
+  timeout: 20000,
+  maximumAge: 0,
+}
 
     );
   };
