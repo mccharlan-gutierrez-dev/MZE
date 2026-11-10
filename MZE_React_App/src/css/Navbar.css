@@ -16,8 +16,13 @@
 
     background-color: #ffffff;
 
-    position: relative;
+    position: sticky;
+    top: 0;
+    left: 0;
+
     z-index: 1000;
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
 }
 
 /* LOGO */
@@ -133,8 +138,18 @@
     /* NAVBAR */
 
     .custom-navbar {
-        min-height: 65px;
-        padding: 0 5%;
+        position: sticky;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    min-height: 65px;
+
+    padding: 0 5%;
+
+    z-index: 1000;
+
+    background-color: #ffffff;
     }
 
     .navbar-logo {
@@ -153,8 +168,15 @@
     .menu-toggle.active {
         position: fixed;
 
-        top: 25px;
-        right: 25px;
+        top: 11px;
+        right: 5%;
+
+        width: 42px;
+        height: 42px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     /* FULL SCREEN MOBILE MENU */
@@ -275,8 +297,17 @@
     /* X BUTTON */
 
     .menu-toggle.active {
-        top: 25px;
-        right: 25px;
+        position: fixed;
+
+        top: 11px;
+        right: 5%;
+
+        width: 42px;
+        height: 42px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
 }
