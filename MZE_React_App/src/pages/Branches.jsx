@@ -377,7 +377,7 @@ const Branches = () => {
             <input
               id="branch-search"
               type="text"
-              placeholder="ZIP code, city, barangay or address"
+              placeholder="ZIP code, city, complete address"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
