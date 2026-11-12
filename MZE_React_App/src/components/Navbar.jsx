@@ -57,7 +57,7 @@ const Navbar = () => {
       {/* NAVIGATION LINKS */}
       <div
         id="main-navigation"
-        className={`navbar-end navbar-links ${menuOpen ? 'active' : ''}`}
+        className={`navbar-links ${menuOpen ? 'active' : ''}`}
       >
 
         <Link to="/" className="nav-link" onClick={closeMenu}>
