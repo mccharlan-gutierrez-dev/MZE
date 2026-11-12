@@ -44,6 +44,7 @@
 }
 
 .about-hero-content h1 {
+  font-family: 'DM Sans', sans-serif;
   color: #7030a0;
   font-size: clamp(36px, 5vw, 60px);
   font-weight: 800;
@@ -51,6 +52,7 @@
 }
 
 .about-hero-content h1 span {
+  font-family: 'DM Sans', sans-serif;
   color: #f3cc09;
 }
 
@@ -77,12 +79,17 @@
 }
 
 .about-hero-content p {
-  max-width: 850px;
-  margin: 0 auto;
+    max-width: 850px;
+    margin: 0 auto;
 
-  color: #34345f;
-  font-size: 16px;
-  line-height: 1.8;
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(14px, 1.2vw, 17px);
+    font-weight: 400;
+
+    line-height: 1.8;
+    color: #24105f;
+
+  
 }
 
 /* =====================================
@@ -970,16 +977,18 @@
 }
 
 .shop-section-label {
-  display: inline-block;
-  color: #7030a0;
-  font-size: 11px;
+  font-family: 'DM Sans', sans-serif;
+ color: #302477;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 1.5px;
-  margin-bottom: 10px;
+  line-height: 1.5;
+
+  margin: 0;
 }
 
 .shop-services-header h2 {
-  color: #190b80;
+  font-family: 'DM Sans', sans-serif;
+  color: #7030a0;
   font-size: clamp(27px, 3.5vw, 38px);
   font-weight: 800;
   line-height: 1.25;
@@ -987,15 +996,20 @@
 }
 
 .shop-services-header h2 span {
-  color: #7030a0;
+  font-family: 'DM Sans', sans-serif;
+  color: #f3cc09;
 }
 
 .shop-intro {
-  color: #514879;
-  font-size: 14px;
-  line-height: 1.8;
-  margin: 0 auto;
-  max-width: 650px;
+  max-width: 850px;
+    margin: 0 auto;
+
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(14px, 1.2vw, 17px);
+    font-weight: 400;
+
+    line-height: 1.8;
+    color: #24105f;
 }
 
 /* SERVICES GRID */

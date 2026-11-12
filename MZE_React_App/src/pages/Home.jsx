@@ -2,12 +2,76 @@ import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router";
 import "../css/Home.css";
 
-import heroBg from "../assets/photopea.webp";
+import heroBg from "../assets/pexels.jpg";
 
 // Import promotional images
 import christmasPromo from "../assets/banner.webp";
 import newYearPromo from "../assets/banner2.webp";
 import summerPromo from "../assets/banner3.webp";
+
+// =====================================
+// ANIMATED COUNT UP
+// =====================================
+
+const CountUp = ({ end, suffix = "", decimals = 0, duration = 2000 }) => {
+  const countRef = useRef(null);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const element = countRef.current;
+    if (!element) return;
+
+    let animationFrame;
+    let started = false;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started) {
+          started = true;
+
+          const startTime = performance.now();
+
+          const animate = (currentTime) => {
+            const progress = Math.min(
+              (currentTime - startTime) / duration,
+              1
+            );
+
+            // Smooth ease-out animation
+            const easeOut = 1 - Math.pow(1 - progress, 4);
+
+            const currentValue = end * easeOut;
+
+            setCount(currentValue);
+
+            if (progress < 1) {
+              animationFrame = requestAnimationFrame(animate);
+            } else {
+              setCount(end);
+            }
+          };
+
+          animationFrame = requestAnimationFrame(animate);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(element);
+
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(animationFrame);
+    };
+  }, [end, duration]);
+
+  return (
+    <strong ref={countRef}>
+      {count.toFixed(decimals)}{suffix}
+    </strong>
+  );
+};
 
 // =====================================
 // WHY CHOOSE MZE FEATURES
@@ -146,13 +210,18 @@ const Home = () => {
   style={{
     backgroundImage: `
       linear-gradient(
-        rgba(0, 0, 0, 0.1),
-        rgba(0, 0, 0, 0)
+        to right,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0.98) 30%,
+        rgba(255, 255, 255, 0.75) 45%,
+        rgba(255, 255, 255, 0.25) 62%,
+        rgba(0, 0, 0, 0.85) 100%
       ),
       url(${heroBg})
     `,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
   }}
 >
   {/* LEFT SIDE CONTENT */}
@@ -192,15 +261,38 @@ const Home = () => {
         Explore Our Products
       </a>
     </div>
+
+    {/* HERO STATISTICS */}
+    <div className="hero-stats">
+
+      <div className="hero-stat">
+        <CountUp
+          end={26}
+          suffix="+"
+          duration={2000}
+        />
+        <small>Branches</small>
+      </div>
+
+      <div className="hero-stat">
+        <CountUp
+          end={4.9}
+          decimals={1}
+          duration={2000}
+        />
+        <small>Star Rating</small>
+      </div>
+
+    </div>
   </div>
 
   {/* RIGHT SIDE HANDWRITTEN TEXT */}
 
-  <div className="hero-tagline">
+  {/* <div className="hero-tagline">
     <span>More</span>
     <span>Than Just</span>
     <span>Pawnshop.</span>
-  </div>
+  </div> */}
 </section>
 
 

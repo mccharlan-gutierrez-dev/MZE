@@ -39,13 +39,14 @@
 }
 
 .logo-box {
+  border-color: #f3cc09;
   
   border-radius: 9px;
   padding: 3px 8px;
   color: #f3cc09;
   font-size: 46px;
   font-weight: 800;
-  letter-spacing: 1px;
+
 }
 
 .brand-info h2 {
@@ -55,8 +56,9 @@
 }
 
 .brand-info p {
-  font-size: 19px;
-  font-style: italic;
+   font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+ 
   margin: 2px 0 0;
 }
 
@@ -65,8 +67,11 @@
 }
 
 .footer-description {
-  font-size: 19px;
-  line-height: 1.5;
+  font-family: 'DM Sans', sans-serif;
+    font-size: clamp(14px, 1.2vw, 14px);
+    font-weight: 400;
+
+    line-height: 1.8;
   margin: 28px 0 25px;
 }
 
@@ -97,7 +102,7 @@
 .footer-socials a:hover {
   background: #f3cc09;
   color: #310064;
-  transform: translateY(-5px);
+  /* transform: translateY(-5px); */
 }
 
 /* REMOVE HOVER EFFECT FROM OUR SERVICES */
@@ -109,12 +114,15 @@
 ===================================== */
 
 .footer-links {
+  
+  
   padding-left: 5px;
   border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .footer-links h3 {
-  font-size: 23px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 20px;
   font-weight: 700;
   margin: 0 0 20px;
   padding-left: 15px;
@@ -129,13 +137,24 @@
 }
 
 .footer-links ul li {
-  margin-bottom: 12px;
+   font-family: 'DM Sans', sans-serif;
+    font-size: clamp(14px, 1.2vw, 17px);
+    font-weight: 400;
+
+    line-height: 1.8;
+    color: #24105f;
+  margin-bottom: 8px;
 }
 
 .footer-links ul li a {
+  font-family: 'DM Sans', sans-serif;
+    font-size: clamp(10px, 1.2vw, 14px);
+    
+    line-height: 1.8;
+   
   color: #fff;
   text-decoration: none;
-  font-size: 18px;
+  
   transition: 0.3s ease;
 }
 
@@ -180,20 +199,26 @@
 
 .security-icon {
   position: relative;
-  color: #f3cc09;
-  font-size: 45px;
+  color: #f6f5ee;
+  font-size: 35px;
   display: flex;
+  margin-left: 2%;
 }
 
 .shield-check {
   position: absolute;
-  font-size: 18px;
+  font-size: 14px;
   top: 13px;
   left: 13px;
 }
 
 .footer-security h4 {
-  font-size: 17px;
+   font-family: 'DM Sans', sans-serif;
+    font-size: clamp(14px, 1.2vw, 10px);
+   
+
+    line-height: 1.8;
+    color: #fff;
   margin: 0 0 4px;
 }
 
@@ -209,7 +234,8 @@
 }
 
 .footer-copyright p {
-  font-size: 15px;
+   font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
   margin: 0;
 }
 

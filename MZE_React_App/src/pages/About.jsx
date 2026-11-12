@@ -7,8 +7,8 @@ import "../css/About.css";
 // IMAGE IMPORTS
 // =====================================
 
-import missionImg from "../assets/banner.webp";
-import visionImg from "../assets/banner2.webp";
+import missionImg from "../assets/watch.jpg";
+import visionImg from "../assets/building.jpg";
 
 // =====================================
 // CORE VALUES DATA
@@ -278,9 +278,9 @@ const ShopServices = () => {
 
         {/* SECTION HEADER */}
         <div className="shop-services-header">
-          <span className="shop-section-label">
+          {/* <span className="shop-section-label">
             MZE CELLULAR PHONE & GADGET SHOP
-          </span>
+          </span> */}
 
           <h2>
             More Than Just a <span>Gadget Shop</span>

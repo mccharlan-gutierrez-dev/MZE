@@ -86,7 +86,7 @@ img {
 
   padding: 30px 0 30px 5%;
 
-  color: #111b4d;
+  color: #7030a0;
 
   display: flex;
   flex-direction: column;
@@ -94,6 +94,9 @@ img {
   justify-content: center;
 
   gap: 5px;
+}
+.hero-content h1 span{
+   color: #f3cc09;
 }
 
 /* SMALL BADGE */
@@ -138,10 +141,12 @@ img {
   width: 100%;
   max-width: 430px;
 
-  font-size: clamp(12px, 1.1vw, 15px);
-  line-height: 1.7;
+  font-family: 'DM Sans', sans-serif;
+    font-size: clamp(14px, 1.2vw, 17px);
+    font-weight: 400;
 
-  color: #37436f;
+    line-height: 1.8;
+    color: #24105f;
 
   margin: 0 0 28px;
 }
@@ -1779,4 +1784,80 @@ img {
   .hero-tagline {
     z-index: 2;
   }
+}
+
+/* new */
+/* =====================================
+   HERO STATISTICS
+===================================== */
+
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  margin-top: 30px;
+  padding-left: 15px;
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding-left: 18px;
+  border-left: 2px solid #7030a0;
+}
+
+.hero-stat strong {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(25px, 3vw, 36px);
+  font-weight: 500;
+  line-height: 1.1;
+
+  color: #7030a0;
+}
+
+.hero-stat small {
+  margin-top: 4px;
+
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(12px, 1vw, 16px);
+
+  color: #666;
+  font-weight: 400;
+}
+@media (max-width: 480px) {
+
+  .hero-stats {
+    gap: 15px;
+    margin-top: 25px;
+    padding-left: 5px;
+  }
+
+  .hero-stat {
+    padding-left: 12px;
+  }
+
+  .hero-stat strong {
+    font-size: 27px;
+  }
+
+  .hero-stat small {
+    font-size: 11px;
+  }
+
+}
+
+/* COUNT UP NUMBER STYLE */
+
+.hero-stat strong {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  min-width: 2ch;
+}
+
+/* Smooth appearance */
+.hero-stat {
+  will-change: transform, opacity;
 }

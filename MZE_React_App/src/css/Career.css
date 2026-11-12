@@ -1,4 +1,79 @@
 /* ================================
+   CAREER HERO SECTION
+================================ */
+
+.career-hero {
+    min-height: 80vh;
+    
+    
+    padding: 60px 5%;
+    background: linear-gradient(
+    120deg,
+    #ffffff 0%,
+    #f6efff 55%,
+    #eee2ff 100%
+  );
+}
+
+/* HERO CONTENT */
+
+.career-hero .hero-content {
+    max-width: 1200px;
+    width: 100%;
+    
+}
+
+/* HERO TITLE */
+
+.career-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 800;
+    color: #7030a0;
+
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+.career-title span{
+   font-family: 'DM Sans', sans-serif;
+  color: #f3cc09;
+}
+.career-title{
+  position: relative;
+  display: inline-block;
+  padding-bottom: 12px;
+}
+
+.career-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 52%;
+  height: 3px;
+
+  background: #7030a0;
+  border-radius: 5px;
+}
+
+/* HERO DESCRIPTION */
+
+.career-description {
+ 
+    max-width: 850px;
+    margin: 0 auto;
+
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(14px, 1.2vw, 17px);
+    font-weight: 400;
+
+    line-height: 1.8;
+    color: #24105f;
+}
+
+/* ================================
    COMPANY VALUES SECTION
 ================================ */
 
@@ -24,9 +99,10 @@
 }
 
 .values-heading h2 {
+   font-family: 'DM Sans', sans-serif;
   font-size: clamp(26px, 4vw, 42px);
   font-weight: 800;
-  color: #24105f;
+  color: #7030a0;
   margin: 0 0 8px;
   letter-spacing: -1px;
 }
@@ -36,11 +112,15 @@
 }
 
 .values-heading p {
-  color: #24105f;
   max-width: 850px;
-  font-size: 14px;
-  line-height: 1.7;
-  margin: 0;
+    margin: 0 auto;
+
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(14px, 1.2vw, 17px);
+    font-weight: 400;
+
+    line-height: 1.8;
+    color: #24105f;
 }
 
 /* ================================

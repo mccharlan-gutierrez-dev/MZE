@@ -21,14 +21,18 @@
 }
 
 .branches-heading h1 {
+  font-family: 'DM Sans', sans-serif;
   font-size: 42px;
   font-weight: 700;
-  color: #090b68;
+  color: #7030a0;
   margin-bottom: 12px;
 }
 
 .branches-heading p {
-  color: #667085;
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(14px, 1.2vw, 17px);
+    font-weight: 400;
+  color: #24105f;
   font-size: 16px;
 }
 

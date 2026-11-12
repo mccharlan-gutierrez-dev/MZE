@@ -56,22 +56,32 @@ const values = [
 const Career = () => {
   return (
     <div>
-        <div className="hero bg-base-400 min-h-screen">
-            <div className="hero-content text-center">
-                <div className="max-w-7xl">
-                  <h1 className="text-5xl font-bold">Build Your Future With MZE</h1>
-                  <p className='w-full max-w-5xl mx-auto mt-6'>
-                    We believe in providing more than just a job; we offer a platform for our team to succeed, be independent, and build a better future.
+        <div className="hero career-hero">
+    <div className="hero text-center">
+        <div className="max-w-7xl">
 
-  As our company grows, so do the opportunities for every member of our family. We are motivated to help you become the best version of yourself, turning dreams into reality.
+            <h1 className="career-title ">
+                Build Your Future 
+                <br />
+                With <span>MZE</span>
+            </h1>
 
-  We want every willing and capable member of this family to achieve their own financial freedom.
-                  </p>
-                
-                </div>
-            </div>
+            <p className="career-description">
+                We believe in providing more than just a job, we offer a
+                platform for our team to succeed, be independent, and build
+                a better future.
+
+                As our company grows, so do the opportunities for every
+                member of our family. We are motivated to help you become
+                the best version of yourself, turning dreams into reality.
+
+                We want every willing and capable member of this family
+                to achieve their own financial freedom.
+            </p>
+
         </div>
-
+    </div>
+</div>
         <CompanyValues/>
     </div>
   )
