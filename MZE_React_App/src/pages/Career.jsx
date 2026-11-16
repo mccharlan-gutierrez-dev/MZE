@@ -53,39 +53,44 @@ const values = [
 ];
 
 
+
 const Career = () => {
   return (
     <div>
-        <div className="hero career-hero">
-    <div className="hero text-center">
-        <div className="max-w-7xl">
+      <div className="hero career-hero">
+        <div className="hero text-center">
+          <div className="max-w-7xl">
 
-            <h1 className="career-title ">
-                Build Your Future 
-                <br />
-                With <span>MZE</span>
+            {/* HERO HEADING */}
+            <h1 className="career-title career-title-animate">
+              Build Your Future
+              <br />
+              With <span>MZE</span>
             </h1>
 
-            <p className="career-description">
-                We believe in providing more than just a job, we offer a
-                platform for our team to succeed, be independent, and build
-                a better future.
+            {/* HERO DESCRIPTION */}
+            <p className="career-description career-description-animate">
+              We believe in providing more than just a job, we offer a
+              platform for our team to succeed, be independent, and build
+              a better future.
 
-                As our company grows, so do the opportunities for every
-                member of our family. We are motivated to help you become
-                the best version of yourself, turning dreams into reality.
+              As our company grows, so do the opportunities for every
+              member of our family. We are motivated to help you become
+              the best version of yourself, turning dreams into reality.
 
-                We want every willing and capable member of this family
-                to achieve their own financial freedom.
+              We want every willing and capable member of this family
+              to achieve their own financial freedom.
             </p>
 
+          </div>
         </div>
+      </div>
+
+      <CompanyValues />
     </div>
-</div>
-        <CompanyValues/>
-    </div>
-  )
-}
+  );
+};
+
 
 const CompanyValues = () => {
   return (

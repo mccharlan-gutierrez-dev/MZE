@@ -70,7 +70,7 @@
     font-weight: 400;
 
     line-height: 1.8;
-    color: #24105f;
+    color: #000;
 }
 
 /* ================================
@@ -120,7 +120,7 @@
     font-weight: 400;
 
     line-height: 1.8;
-    color: #24105f;
+    color: #000;
 }
 
 /* ================================
@@ -286,5 +286,55 @@
   .value-card p {
     font-size: 13px;
     max-width: 320px;
+  }
+}
+
+
+/* =====================================
+   CAREER HERO ANIMATIONS
+===================================== */
+
+/* INITIAL STATE */
+
+.career-title-animate,
+.career-description-animate {
+  opacity: 0;
+  transform: translateY(45px);
+}
+
+/* HEADING ANIMATION - FIRST */
+
+.career-hero .career-title-animate {
+  animation: careerSlideUp 0.9s ease-out 0.2s forwards;
+}
+
+/* DESCRIPTION ANIMATION - SECOND */
+
+.career-hero .career-description-animate {
+  animation: careerSlideUp 0.9s ease-out 0.7s forwards;
+}
+
+/* SLIDE UP KEYFRAMES */
+
+@keyframes careerSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(45px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .career-title-animate,
+  .career-description-animate {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
   }
 }
