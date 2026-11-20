@@ -4,10 +4,6 @@ import "../css/Home.css";
 
 import heroBg from "../assets/pexels.jpg";
 
-// Import promotional images
-import christmasPromo from "../assets/banner.webp";
-import newYearPromo from "../assets/banner2.webp";
-import summerPromo from "../assets/banner3.webp";
 
 // =====================================
 // ANIMATED COUNT UP
@@ -179,23 +175,7 @@ const products = [
 // HOME
 // =====================================
 
-const promotions = [
-  {
-    id: 1,
-    image: christmasPromo,
-    alt: "Christmas Holiday Promo",
-  },
-  {
-    id: 2,
-    image: newYearPromo,
-    alt: "New Year Promo",
-  },
-  {
-    id: 3,
-    image: summerPromo,
-    alt: "Summer Promo",
-  },
-];
+
 
 const Home = () => {
   return (
@@ -509,82 +489,65 @@ const HowItWorks = () => {
   );
 };
 
+
 const PromoCarousel = () => {
+  const [promotions, setPromotions] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Next slide
-  const nextSlide = () => {
-    setCurrentSlide((prev) =>
-      (prev + 1) % promotions.length
-    );
-  };
+  // Fetch promotions from Laravel
+  useEffect(() => {
+    const fetchPromotions = async () => {
+      try {
+        const response = await fetch(
+          "http://127.0.0.1:8000/api/promotions"
+        );
 
-  // Previous slide
-  const prevSlide = () => {
-    setCurrentSlide((prev) =>
-      (prev - 1 + promotions.length) % promotions.length
-    );
-  };
+        if (!response.ok) {
+          throw new Error("Failed to fetch promotions");
+        }
+
+        const data = await response.json();
+        setPromotions(data);
+      } catch (error) {
+        console.error("Error fetching promotions:", error);
+      }
+    };
+
+    fetchPromotions();
+  }, []);
 
   // Automatically change slide every 5 seconds
   useEffect(() => {
+    if (promotions.length <= 1) return;
+
     const interval = setInterval(() => {
-      nextSlide();
+      setCurrentSlide((prev) => (prev + 1) % promotions.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [promotions.length]);
+
+  // Hide section if there are no active promotions
+  if (promotions.length === 0) return null;
 
   return (
     <section className="promo-section">
-
-      {/* Section Header */}
       <div className="promo-header">
-
         <div className="promo-heading">
           <span></span>
           <h2>Latest Promos & Announcements</h2>
         </div>
-
-        {/* <button className="view-promos-btn">
-          View All Promos
-          <span>→</span>
-        </button> */}
-
       </div>
 
-      {/* Carousel */}
       <div className="promo-carousel">
-
-        {/* Promotional Image */}
-        <div className="promo-slide" key={currentSlide}>
+        <div className="promo-slide" key={promotions[currentSlide].id}>
           <img
-            src={promotions[currentSlide].image}
-            alt={promotions[currentSlide].alt}
+            src={promotions[currentSlide].image_url}
+            alt={promotions[currentSlide].title}
           />
         </div>
-
-        {/* Previous Button */}
-        {/* <button
-          className="promo-arrow promo-prev"
-          onClick={prevSlide}
-          aria-label="Previous promotion"
-        >
-          ❮
-        </button> */}
-
-        {/* Next Button */}
-        {/* <button
-          className="promo-arrow promo-next"
-          onClick={nextSlide}
-          aria-label="Next promotion"
-        >
-          ❯
-        </button> */}
-
       </div>
 
-      {/* Carousel Indicators */}
       <div className="promo-dots">
         {promotions.map((promo, index) => (
           <button
@@ -597,10 +560,10 @@ const PromoCarousel = () => {
           />
         ))}
       </div>
-
     </section>
   );
 };
+
 
 
 export default Home;

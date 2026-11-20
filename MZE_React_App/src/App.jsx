@@ -2,15 +2,19 @@
 import { Routes, Route } from 'react-router';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 import Home from './pages/Home';
 import About from './pages/About';
 import Branches from './pages/Branches';
 import Contact from './pages/Contact';
 import Career from './pages/Career';
-import Footer from './components/Footer';
 
-function App() {
+// Admin
+import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminPromotions from './pages/admin/AdminPromotions';
+
+function PublicLayout() {
   return (
     <>
       <ScrollToTop />
@@ -24,8 +28,21 @@ function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
 
-      <Footer/>
+      <Footer />
     </>
+  );
+}
+
+function App() {
+  return (
+    <Routes>
+      {/* Admin pages - no public Navbar or Footer */}
+      <Route path="/admin" element={<AdminDashboard />} />
+      <Route path="/admin/promotions" element={<AdminPromotions />} />
+
+      {/* Public website */}
+      <Route path="/*" element={<PublicLayout />} />
+    </Routes>
   );
 }
 
