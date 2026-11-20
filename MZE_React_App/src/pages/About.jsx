@@ -228,29 +228,43 @@ const About = () => {
 
       {/* ABOUT HERO SECTION */}
       {/* ABOUT HERO SECTION */}
+
+
+{/* ABOUT HERO SECTION */}
 <section
   className={`about-hero ${isVisible ? "is-visible" : ""}`}
   ref={sectionRef}
 >
   <div className="about-hero-content">
 
-    <h1 className="force-heading hero-title-animate">
-      A Force <span>For Good</span>
-    </h1>
+    {/* LEFT SIDE - HEADING */}
+    <div className="about-hero-left">
+      <span className="about-hero-label hero-title-animate">
+        ABOUT MZE CELLULAR
+      </span>
 
-    <p className="hero-description-animate">
-      As a proud member of the Eguia Group of Companies (EGC),
-      we share a story of hope and perseverance. From a small
-      medical distribution company that survived changing market
-      forces, EGC branched out into finance and wellness,
-      becoming an example that dreams do come true.
-      MZE Cellular carries this legacy forward, serving
-      thousands of happy customers through our well-trained
-      sales and service providers.
-    </p>
+      <h1 className="force-heading hero-title-animate">
+        A Force <span>For Good</span>
+      </h1>
+    </div>
+
+    {/* RIGHT SIDE - DESCRIPTION */}
+    <div className="about-hero-right hero-description-animate">
+      <p>
+        As a proud member of the Eguia Group of Companies (EGC),
+        we share a story of hope and perseverance. From a small
+        medical distribution company that survived changing market
+        forces, EGC branched out into finance and wellness,
+        becoming an example that dreams do come true.
+        MZE Cellular carries this legacy forward, serving
+        thousands of happy customers through our well-trained
+        sales and service providers.
+      </p>
+    </div>
 
   </div>
 </section>
+
 
       <ShopServices/>
 
