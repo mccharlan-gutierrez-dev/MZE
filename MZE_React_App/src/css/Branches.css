@@ -139,13 +139,26 @@
 }
 
 /* =====================================
-   BRANCH RESULTS
+   BRANCH RESULTS - SCROLLABLE LIST
 ===================================== */
 
 .branch-results {
   display: flex;
   flex-direction: column;
   gap: 15px;
+
+  /* Show approximately 2 branch cards */
+  max-height: 650px;
+
+  /* Allow vertical scrolling */
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  /* Space for the scrollbar */
+  padding-right: 8px;
+
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
 }
 
 .results-heading {
@@ -236,6 +249,34 @@
 }
 
 /* =====================================
+   BRANCH LIST SCROLLBAR
+===================================== */
+
+.branch-results::-webkit-scrollbar {
+  width: 6px;
+}
+
+.branch-results::-webkit-scrollbar-track {
+  background: #e9ebef;
+  border-radius: 10px;
+}
+
+.branch-results::-webkit-scrollbar-thumb {
+  background: #7030a0;
+  border-radius: 10px;
+}
+
+.branch-results::-webkit-scrollbar-thumb:hover {
+  background: #522078;
+}
+
+/* Firefox */
+.branch-results {
+  scrollbar-width: thin;
+  scrollbar-color: #7030a0 #e9ebef;
+}
+
+/* =====================================
    MAP
 ===================================== */
 
@@ -309,6 +350,9 @@
 }
 
 @media (max-width: 600px) {
+  .branch-results {
+  max-height: 600px;
+}
   .branches-page {
     padding: 25px 15px 40px;
   }

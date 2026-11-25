@@ -4,6 +4,16 @@ use App\Http\Controllers\Api\PromotionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Api\BranchController;
+
+// BRANCH ROUTES
+Route::get('/branches', [BranchController::class, 'index']);
+Route::post('/admin/branches', [BranchController::class, 'store']);
+Route::get('/admin/branches/{id}', [BranchController::class, 'show']);
+Route::put('/admin/branches/{id}', [BranchController::class, 'update']);
+Route::patch('/admin/branches/{id}', [BranchController::class, 'update']);
+Route::delete('/admin/branches/{id}', [BranchController::class, 'destroy']);
+
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');

@@ -13,31 +13,14 @@ import "leaflet/dist/leaflet.css";
 import "../css/Branches.css";
 
 // =====================================
-// MZE BRANCH DATA
+// BRANCH API URL
 // =====================================
 
-const branches = [
-  {
-    id: 1,
-    name: "Kamuning Branch",
-    address: "15K-5th Street, Brgy. Kamuning, Quezon City",
-    contact: "0942 390 1800",
-    hours: "Monday–Saturday: 8:00 AM – 5:45 PM",
-    lat: 14.6263349,
-    lng: 121.0373555,
-  },
-  {
-    id: 2,
-    name: "MZE Soledad Branch",
-    address:
-      "18 France cor. Germany St., Brgy. Don Bosco, Better Living, Parañaque City",
-    contact: "0932-406-9768",
-    hours: "Monday–Saturday: 8:00 AM – 4:45 PM",
-    closed: "Sunday & Holidays: Closed",
-    lat: 14.4854,
-    lng: 121.0456,
-  },
-];
+const API_URL = (
+  import.meta.env.VITE_BRANCH_API_BASE_URL ||
+  import.meta.env.VITE_API_BASE_URL ||
+  "http://127.0.0.1:8000"
+).replace(/\/$/, "");
 
 // =====================================
 // DISTANCE CALCULATION
@@ -101,13 +84,19 @@ const openGoogleMaps = (branch) => {
 // =====================================
 
 const Branches = () => {
+  const [branches, setBranches] = useState([]);
+
   const [search, setSearch] = useState("");
 
   const [userLocation, setUserLocation] = useState(null);
 
   const [loading, setLoading] = useState(false);
 
+  const [branchesLoading, setBranchesLoading] = useState(true);
+
   const [error, setError] = useState("");
+
+  const [branchLoadError, setBranchLoadError] = useState("");
 
   const [mapCenter, setMapCenter] = useState([
     14.56,
@@ -115,6 +104,60 @@ const Branches = () => {
   ]);
 
   const [selectedBranch, setSelectedBranch] = useState(null);
+
+  // =====================================
+  // FETCH BRANCHES FROM DATABASE
+  // =====================================
+
+  useEffect(() => {
+    const fetchBranches = async () => {
+      try {
+        setBranchesLoading(true);
+        setBranchLoadError("");
+
+        const response = await fetch(
+          `${API_URL}/api/branches`
+        );
+
+        if (!response.ok) {
+          throw new Error("Unable to load branches.");
+        }
+
+        const data = await response.json();
+
+        // Convert database coordinates to numbers
+        const formattedBranches = data
+          .map((branch) => ({
+            ...branch,
+            lat: Number(branch.latitude),
+            lng: Number(branch.longitude),
+          }))
+          .filter(
+            (branch) =>
+              Number.isFinite(branch.lat) &&
+              Number.isFinite(branch.lng) &&
+              branch.lat >= -90 &&
+              branch.lat <= 90 &&
+              branch.lng >= -180 &&
+              branch.lng <= 180
+          );
+
+        setBranches(formattedBranches);
+
+      } catch (err) {
+        console.error("Branch loading error:", err);
+
+        setBranchLoadError(
+          "Unable to load branches. Please try again later."
+        );
+
+      } finally {
+        setBranchesLoading(false);
+      }
+    };
+
+    fetchBranches();
+  }, []);
 
   // =====================================
   // SORT BRANCHES BY DISTANCE
@@ -138,7 +181,7 @@ const Branches = () => {
       }))
       .sort((a, b) => a.distance - b.distance);
 
-  }, [userLocation]);
+  }, [userLocation, branches]);
 
   // =====================================
   // SEARCH ADDRESS
@@ -207,8 +250,6 @@ const Branches = () => {
   // =====================================
 
   const useCurrentLocation = () => {
-    // Check browser geolocation support
-
     if (!navigator.geolocation) {
       setError(
         "Your browser does not support location services."
@@ -216,8 +257,6 @@ const Branches = () => {
 
       return;
     }
-
-    // Check HTTPS / secure context
 
     if (!window.isSecureContext) {
       setError(
@@ -227,22 +266,15 @@ const Branches = () => {
       return;
     }
 
-    // Start loading
-
     setLoading(true);
     setError("");
-
-    // Clear previous location to avoid outdated status
 
     setUserLocation(null);
     setSelectedBranch(null);
 
-    // Request device location
-
     navigator.geolocation.getCurrentPosition(
 
       // SUCCESS CALLBACK
-
       (position) => {
         const location = {
           lat: position.coords.latitude,
@@ -251,28 +283,18 @@ const Branches = () => {
 
         console.log("Location detected:", location);
 
-        // Save user location
-
         setUserLocation(location);
-
-        // Update map center
 
         setMapCenter([
           location.lat,
           location.lng,
         ]);
 
-        // Clear error
-
         setError("");
-
-        // Stop loading
-
         setLoading(false);
       },
 
       // ERROR CALLBACK
-
       (err) => {
         console.error("Geolocation error:", err);
 
@@ -305,7 +327,6 @@ const Branches = () => {
       },
 
       // LOCATION OPTIONS
-
       {
         enableHighAccuracy: false,
         timeout: 60000,
@@ -416,6 +437,14 @@ const Branches = () => {
             </p>
           )}
 
+          {/* BRANCH API ERROR */}
+
+          {branchLoadError && (
+            <p className="branch-error">
+              {branchLoadError}
+            </p>
+          )}
+
           {/* LOCATION STATUS */}
 
           {userLocation && !error && (
@@ -446,129 +475,170 @@ const Branches = () => {
 
             </div>
 
+            {/* LOADING */}
+
+            {branchesLoading && (
+              <p>
+                Loading branches...
+              </p>
+            )}
+
+            {/* EMPTY BRANCHES */}
+
+            {!branchesLoading &&
+              !branchLoadError &&
+              branches.length === 0 && (
+                <p>
+                  No branches available at the moment.
+                </p>
+              )}
+
             {/* BRANCH CARDS */}
 
-            {sortedBranches.map((branch, index) => (
+            {!branchesLoading &&
+              sortedBranches.map((branch, index) => (
 
-              <div
-                key={branch.id}
-                className={`branch-card ${
-                  selectedBranch?.id === branch.id
-                    ? "selected"
-                    : ""
-                }`}
-                onClick={() => selectBranch(branch)}
-              >
+                <div
+                  key={branch.id}
+                  className={`branch-card ${
+                    selectedBranch?.id === branch.id
+                      ? "selected"
+                      : ""
+                  }`}
+                  onClick={() => selectBranch(branch)}
+                >
 
-                {/* NEAREST BADGE */}
+                  {/* NEAREST BADGE */}
 
-                {userLocation && index === 0 && (
-                  <span className="nearest-badge">
-                    NEAREST BRANCH
-                  </span>
-                )}
-
-                <h3>{branch.name}</h3>
-
-                {/* ADDRESS */}
-
-                <p className="branch-detail">
-
-                  <strong>Address:</strong>
-
-                  <br />
-
-                  <span
-                    className="clickable-address"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      openGoogleMaps(branch);
-                    }}
-                    title="Get directions using Google Maps"
-                  >
-
-                    {branch.address}
-
-                    <span className="address-arrow">
-                      {" "}↗
+                  {userLocation && index === 0 && (
+                    <span className="nearest-badge">
+                      NEAREST BRANCH
                     </span>
-
-                  </span>
-
-                </p>
-
-                {/* CONTACT */}
-
-                <p className="branch-detail">
-
-                  <strong>Contact:</strong>
-
-                  <br />
-
-                  {branch.contact}
-
-                </p>
-
-                {/* OPERATING HOURS */}
-
-                <p className="branch-detail">
-
-                  <strong>Operating Hours:</strong>
-
-                  <br />
-
-                  {branch.hours}
-
-                  {branch.closed && (
-                    <>
-                      <br />
-                      {branch.closed}
-                    </>
                   )}
 
-                </p>
+                  <h3>{branch.name}</h3>
 
-                {/* DISTANCE */}
+                  {/* ADDRESS */}
 
-                {userLocation && (
-                  <p className="branch-distance">
+                  <p className="branch-detail">
 
-                    <strong>
-                      {branch.distance.toFixed(2)} km away
-                    </strong>
+                    <strong>Address:</strong>
+
+                    <br />
+
+                    <span
+                      className="clickable-address"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        openGoogleMaps(branch);
+                      }}
+                      title="Get directions using Google Maps"
+                    >
+
+                      {branch.address}
+
+                      <span className="address-arrow">
+                        {" "}↗
+                      </span>
+
+                    </span>
 
                   </p>
-                )}
 
-                {/* VIEW ON MAP */}
+                  {/* CONTACT */}
 
-                <button
-                  type="button"
-                  className="view-map-btn"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    selectBranch(branch);
-                  }}
-                >
-                  View on map →
-                </button>
+                  <p className="branch-detail">
 
-                {/* GET DIRECTIONS */}
+                    <strong>Contact:</strong>
 
-                <button
-                  type="button"
-                  className="view-map-btn"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    getDirections(branch);
-                  }}
-                >
-                  Get directions ↗
-                </button>
+                    <br />
 
-              </div>
+                    {branch.contact}
 
-            ))}
+                  </p>
+
+                  {/* EMAIL */}
+
+                  {branch.email && (
+                    <p className="branch-detail">
+                      <strong>Email:</strong>
+                      <br />
+                      {branch.email}
+                    </p>
+                  )}
+
+                  {/* OPERATING HOURS */}
+
+                  {branch.hours && (
+                    <p className="branch-detail">
+
+                      <strong>Operating Hours:</strong>
+
+                      <br />
+
+                      {branch.hours}
+
+                      {branch.closed && (
+                        <>
+                          <br />
+                          {branch.closed}
+                        </>
+                      )}
+
+                    </p>
+                  )}
+
+                  {/* CLOSED SCHEDULE */}
+
+                  {!branch.hours && branch.closed && (
+                    <p className="branch-detail">
+                      <strong>Closed:</strong>
+                      <br />
+                      {branch.closed}
+                    </p>
+                  )}
+
+                  {/* DISTANCE */}
+
+                  {userLocation && (
+                    <p className="branch-distance">
+
+                      <strong>
+                        {branch.distance.toFixed(2)} km away
+                      </strong>
+
+                    </p>
+                  )}
+
+                  {/* VIEW ON MAP */}
+
+                  <button
+                    type="button"
+                    className="view-map-btn"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      selectBranch(branch);
+                    }}
+                  >
+                    View on map →
+                  </button>
+
+                  {/* GET DIRECTIONS */}
+
+                  <button
+                    type="button"
+                    className="view-map-btn"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      getDirections(branch);
+                    }}
+                  >
+                    Get directions ↗
+                  </button>
+
+                </div>
+
+              ))}
 
           </div>
 
