@@ -1,8 +1,8 @@
-
 FROM php:8.4-cli
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
+    ca-certificates \
     git unzip libzip-dev libpng-dev libjpeg-dev \
     libfreetype6-dev libonig-dev libxml2-dev libicu-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
@@ -30,4 +30,4 @@ RUN mkdir -p storage/framework/cache \
 EXPOSE 10000
 
 # Start Laravel
-CMD sh -c "php artisan serve --host=0.0.0.0 --port=\${PORT:-10000}"
+CMD ["sh", "-c", "php artisan serve --host=0.0.0.0 --port=${PORT:-10000}"]
