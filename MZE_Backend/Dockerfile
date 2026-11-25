@@ -9,6 +9,10 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install pdo_mysql mbstring bcmath exif pcntl zip gd intl \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Configure PHP upload limits
+RUN printf "upload_max_filesize=10M\npost_max_size=12M\nmemory_limit=256M\n" \
+    > /usr/local/etc/php/conf.d/uploads.ini
+
 # Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
