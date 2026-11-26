@@ -13,7 +13,7 @@ return [
     | a conventional file to locate the various service credentials.
     |
     */
-    'migration_secret' => env('MIGRATION_SECRET'),
+
 
     'postmark' => [
         'key' => env('POSTMARK_API_KEY'),

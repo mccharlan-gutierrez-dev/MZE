@@ -1,7 +1,6 @@
 <?php
 
 
-use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Api\PromotionController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -44,44 +43,3 @@ Route::prefix('admin')->group(function () {
 
 });
 
-// TEMPORARY PROTECTED MIGRATION STATUS CHECK
-Route::post('/temporary-migration-status', function (Request $request) {
-
-    $secret = config('services.migration_secret');
-    $providedSecret = $request->header('X-Migration-Secret');
-
-    if (!$secret || !$providedSecret || !hash_equals($secret, $providedSecret)) {
-        return response()->json([
-            'message' => 'Unauthorized'
-        ], 401);
-    }
-
-    Artisan::call('migrate:status');
-
-    return response()->json([
-        'message' => 'Migration status retrieved.',
-        'status' => Artisan::output()
-    ]);
-});
-
-// TEMPORARY PROTECTED MIGRATION EXECUTION
-Route::post('/temporary-run-migration', function (Request $request) {
-
-    $secret = config('services.migration_secret');
-    $providedSecret = $request->header('X-Migration-Secret');
-
-    if (!$secret || !$providedSecret || !hash_equals($secret, $providedSecret)) {
-        return response()->json([
-            'message' => 'Unauthorized'
-        ], 401);
-    }
-
-    Artisan::call('migrate', [
-        '--force' => true
-    ]);
-
-    return response()->json([
-        'message' => 'Migration command completed.',
-        'output' => Artisan::output()
-    ]);
-});
