@@ -96,49 +96,49 @@ const testimonials = [
   {
     quote:
       "MZE Pawnshop gave me the best appraisal for my gadgets. Fast and transparent!",
-    name: "Maria Santos",
+    // name: "Maria Santos",
     location: "Quezon City",
-    image: "https://i.pravatar.cc/100?img=47",
+    // image: "https://i.pravatar.cc/100?img=47",
     rating: 5,
   },
   {
     quote:
       "Reliable, safe, and very professional. I always trust MZE!",
-    name: "James Dela Cruz",
+    // name: "James Dela Cruz",
     location: "Manila",
-    image: "https://i.pravatar.cc/100?img=12",
+    // image: "https://i.pravatar.cc/100?img=12",
     rating: 5,
   },
   {
     quote:
       "Great experience! The staff are accommodating and the process is really fast.",
-    name: "Anna Reyes",
+    // name: "Anna Reyes",
     location: "Pasig",
-    image: "https://i.pravatar.cc/100?img=44",
+    // image: "https://i.pravatar.cc/100?img=44",
     rating: 5,
   },
   {
     quote:
       "Very convenient service and friendly staff. Highly recommended!",
-    name: "John Mendoza",
+    // name: "John Mendoza",
     location: "Makati",
-    image: "https://i.pravatar.cc/100?img=13",
+    // image: "https://i.pravatar.cc/100?img=13",
     rating: 5,
   },
   {
     quote:
       "The transaction was smooth and hassle-free. I will definitely come back!",
-    name: "Angela Garcia",
+    // name: "Angela Garcia",
     location: "Taguig",
-    image: "https://i.pravatar.cc/100?img=49",
+    // image: "https://i.pravatar.cc/100?img=49",
     rating: 5,
   },
   {
     quote:
       "Excellent customer service and fair appraisal. Thank you, MZE!",
-    name: "Mark Villanueva",
+    // name: "Mark Villanueva",
     location: "Marikina",
-    image: "https://i.pravatar.cc/100?img=11",
+    // image: "https://i.pravatar.cc/100?img=11",
     rating: 5,
   },
 ];
@@ -574,11 +574,11 @@ const Testimonials = () => {
 
                 <div className="testimonial-profile">
 
-                  <img
+                  {/* <img
                     src={item.image}
                     alt={`Profile of ${item.name}`}
                     loading="lazy"
-                  />
+                  /> */}
 
                   <div className="testimonial-user-info">
 

@@ -247,7 +247,7 @@ const Home = () => {
 
       <div className="hero-stat">
         <CountUp
-          end={26}
+          end={20}
           suffix="+"
           duration={2000}
         />
