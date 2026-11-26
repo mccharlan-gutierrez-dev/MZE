@@ -63,3 +63,25 @@ Route::post('/temporary-migration-status', function (Request $request) {
         'status' => Artisan::output()
     ]);
 });
+
+// TEMPORARY PROTECTED MIGRATION EXECUTION
+Route::post('/temporary-run-migration', function (Request $request) {
+
+    $secret = config('services.migration_secret');
+    $providedSecret = $request->header('X-Migration-Secret');
+
+    if (!$secret || !$providedSecret || !hash_equals($secret, $providedSecret)) {
+        return response()->json([
+            'message' => 'Unauthorized'
+        ], 401);
+    }
+
+    Artisan::call('migrate', [
+        '--force' => true
+    ]);
+
+    return response()->json([
+        'message' => 'Migration command completed.',
+        'output' => Artisan::output()
+    ]);
+});
